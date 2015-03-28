@@ -5,8 +5,7 @@
     {
       "ENV_NAME": "development",
       "BACKEND_URL": "http://localhost:3000",
-      "API_URL": "http://localhost:3000/api/v1/",
-      "ROLLBAR_ACCESS_TOKEN": "rollbar_token"
+      "API_URL": "http://localhost:3000/api/v1/"
     }
   }
 }

@@ -12,16 +12,7 @@ html(ng-app='huBEERt')
     link(href='css/app.css', rel='stylesheet')
     link(rel='icon', type='image/ico', href='img/favicon.ico')
     
-    -if (GLOBALS.ROLLBAR_ACCESS_TOKEN)
-      script(type='text/javascript').
-        var _rollbarConfig = {
-            accessToken: '#{GLOBALS.ROLLBAR_ACCESS_TOKEN}',
-            captureUncaught: true,
-            payload: {
-              environment: '#{GLOBALS.ENV_NAME}'
-            }
-        };
-    script(src='js/rollbar.js')
+
     script(src='js/vendor.js')
     script(src='js/app.js')
 

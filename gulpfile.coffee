@@ -99,11 +99,9 @@ globals = switch gutil.env.env
   when 'production'
     ENV_NAME: 'production'
     BACKEND_URL: process.env.BACKEND_URL || 'http://hubeert.pl'
-    ROLLBAR_ACCESS_TOKEN: '54cd129b61c84537882e2326ab9a27f7'
   else
     ENV_NAME: 'development'
     BACKEND_URL: process.env.BACKEND_URL || 'http://localhost:3000'
-    ROLLBAR_ACCESS_TOKEN: '54cd129b61c84537882e2326ab9a27f7'
     DIST_DIR: 'www'
 
 # You can replace one of globals by devining ENV variable,

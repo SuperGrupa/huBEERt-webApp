@@ -18,10 +18,4 @@ app = angular.module 'huBEERt', [
   'huBEERt.alerts'
 ]
 
-if Rollbar?
-  app.factory '$exceptionHandler', ($log) ->
-    (e, cause) ->
-      $log.error e.message
-      Rollbar.error(e)
-
 window.GLOBALS  ?= {}
