@@ -1,0 +1,12 @@
+{ 
+  "name": "huBEERt.config",
+  "constants": {
+    "ENV":
+    {
+      "ENV_NAME": "production",
+      "BACKEND_URL": "http://api.hubeert.com",
+      "API_URL": "http://api.hubeert.com/api/v1/",
+      "ROLLBAR_ACCESS_TOKEN": "rollbar_token"
+    }
+  }
+}
