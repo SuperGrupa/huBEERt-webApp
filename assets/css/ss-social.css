@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+/*
+* Symbolset
+* www.symbolset.com
+* Copyright © 2012 Oak Studios LLC
+* 
+* Upload this file to your web server
+* and place this within your <head> tags.
+* <link href="webfonts/ss-social.css" rel="stylesheet" />
+*/
+
+@font-face {
+  font-family: "SSSocial";
+  src: url('../fonts/ss-social-circle.eot');
+  src: url('../fonts/ss-social-circle.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/ss-social-circle.woff') format('woff'),
+       url('../fonts/ss-social-circle.ttf') format('truetype'),
+       url('../fonts/ss-social-circle.svg#SSSocialCircle') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.sss-icon, .sss-icon.ss-social, .sss-icon.ss-social-circle,
+[class^="sss-"]:before, [class*=" sss-"]:before, 
+[class^="sss-"][class*=" sss-social"]:before, [class*=" sss-"][class*=" sss-social"]:before,
+[class^="sss-"].right:after, [class*=" sss-"].right:after,
+[class^="sss-"][class*=" sss-social"].right:after, [class*=" sss-"][class*=" sss-social"].right:after{
+  font-family: "SSSocial";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  -o-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+.ssss-icon.sss-social-circle, 
+[class^="sss-"].sss-social-circle:before, [class*=" sss-"].sss-social-circle:before,
+[class^="sss-"].sss-social-circle.right:after, [class*=" sss-"].sss-social-circle.right:after{
+  font-weight: bold;
+}
+
+[class^="sss-"].right:before, [class^="sss-"][class*=" sss-social"].right:before{display:none;content:'';}
+
+.sss-facebook:before,.sss-facebook.right:after{content:''}.sss-twitter:before,.sss-twitter.right:after{content:''}.sss-linkedin:before,.sss-linkedin.right:after{content:''}.sss-googleplus:before,.sss-googleplus.right:after{content:''}.sss-tumblr:before,.sss-tumblr.right:after{content:''}.sss-wordpress:before,.sss-wordpress.right:after{content:''}.sss-blogger:before,.sss-blogger.right:after{content:''}.sss-posterous:before,.sss-posterous.right:after{content:''}.sss-youtube:before,.sss-youtube.right:after{content:''}.sss-vimeo:before,.sss-vimeo.right:after{content:''}.sss-flickr:before,.sss-flickr.right:after{content:''}.sss-instagram:before,.sss-instagram.right:after{content:''}.sss-pinterest:before,.sss-pinterest.right:after{content:''}.sss-dribbble:before,.sss-dribbble.right:after{content:''}.sss-behance:before,.sss-behance.right:after{content:''}.sss-github:before,.sss-github.right:after{content:''}.sss-octocat:before,.sss-octocat.right:after{content:''}.sss-paypal:before,.sss-paypal.right:after{content:''}.sss-foursquare:before,.sss-foursquare.right:after{content:''}.sss-skype:before,.sss-skype.right:after{content:''}.sss-rdio:before,.sss-rdio.right:after{content:''}.sss-spotify:before,.sss-spotify.right:after{content:''}.sss-lastfm:before,.sss-lastfm.right:after{content:''}.sss-mail:before,.sss-mail.right:after{content:'✉'}.sss-like:before,.sss-like.right:after{content:'👍'}.sss-rss:before,.sss-rss.right:after{content:''}

@@ -1,12 +1,16 @@
-# website
+huBEERt WebApp repository
+===================================
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+# Requirements
 
-## Build & development
+* NodeJS
 
-Run `grunt` for building and `grunt serve` for preview.
+# How to install
 
-## Testing
+```
+npm install
+bower install
+gulp
 
-Running `grunt test` will run the unit tests with karma.
+```
+
