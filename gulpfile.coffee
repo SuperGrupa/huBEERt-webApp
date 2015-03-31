@@ -61,6 +61,7 @@ paths =
       'public/components/angular-jwt/dist/angular-jwt.js'
       'public/components/a0-angular-storage/dist/angular-storage.js'
       'public/components/angular-messages/angular-messages.js'
+      'public/components/toastr/toastr.js'
     ]
     app: [
       'app/common/**/*.coffee'
