@@ -5,6 +5,7 @@ angular.module 'common', [
   'common.services'
   'common.interceptors'
   'common.footer'
+  'common.nav'
 ]
 angular.module 'common.directives', [
   'common.directives.helloDirective'
