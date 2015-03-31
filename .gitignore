@@ -26,3 +26,7 @@ config/*.json
 test/e2e/screenshots/*.png
 
 shippable/
+
+.tmp/
+
+bower_components/
