@@ -24,6 +24,7 @@ ngConstant          = require 'gulp-ng-constant'
 webdriverStandalone = require('gulp-protractor').webdriver_standalone
 webdriverUpdate     = require('gulp-protractor').webdriver_update
 karma               = require('karma').server
+connect             = require('gulp-connect')
 
 # configs
 karmaConfig         = require('./test/unit/karma.config')
@@ -257,7 +258,12 @@ gulp.task 'watch', ->
     livereloadServer.changed(file.path)
 
 gulp.task 'server', ->
-  http.createServer(ecstatic(root: 'www')).listen(options.httpPort)
+  connect.server({
+    root: 'www',
+    port: options.httpPort,
+    fallback: 'www/index.html',
+    livereload: true
+  });
   gutil.log gutil.colors.blue "HTTP server listening on #{options.httpPort}"
   if options.open
     url = "http://localhost:#{options.httpPort}/"
