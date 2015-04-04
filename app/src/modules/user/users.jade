@@ -1,0 +1,14 @@
+| Users
+
+table.table
+  tr
+    th Firstname
+    th lastname
+    th
+  tbody
+    tr(ng-repeat="user in users")
+      td {{user.firstname}} 
+      td {{user.lastname}} 
+      td
+        a(ui-sref="root.user({ id: user.id })") Show
+
