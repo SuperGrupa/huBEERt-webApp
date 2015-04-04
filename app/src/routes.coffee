@@ -1,7 +1,9 @@
 # global routes
 angular.module 'huBEERt'
 
-.config ($stateProvider, $urlRouterProvider) ->
+.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
+
+  $locationProvider.html5Mode(true)
 
   $urlRouterProvider.otherwise '/'
 
