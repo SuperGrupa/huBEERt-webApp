@@ -22,7 +22,7 @@ angular.module 'huBEERt.user', ['ui.bootstrap', 'ui.router', 'huBEERt.user.show'
       controller: 'ShowUserCtrl'
     )
     .state('user.new',
-      url: '/new'
+      url: '^/register'
       templateUrl: 'templates/src/modules/user/new/new.user.html'
       controller: 'NewUserCtrl'
     )
