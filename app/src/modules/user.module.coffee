@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module 'huBEERt.user', ['ui.bootstrap', 'ui.router']
+angular.module 'huBEERt.user', ['ui.bootstrap', 'ui.router', 'huBEERt.user.show', 'huBEERt.user.new', 'huBEERt.user.list']
 .config ($stateProvider, $urlRouterProvider) ->
 
   $stateProvider
@@ -12,17 +12,17 @@ angular.module 'huBEERt.user', ['ui.bootstrap', 'ui.router']
       parent: 'root'
     )
     .state('user.list',
-      url: '/list'
-      templateUrl: 'templates/src/modules/user/list/users.html'
-      controller: 'UsersCtrl'
+      url: 's'
+      templateUrl: 'templates/src/modules/user/list/list.users.html'
+      controller: 'ListUsersCtrl'
     )
     .state('user.show',
       url: '/:id'
-      templateUrl: 'templates/src/modules/user/show/user.html'
-      controller: 'UserCtrl'
+      templateUrl: 'templates/src/modules/user/show/show.user.html'
+      controller: 'ShowUserCtrl'
     )
     .state('user.new',
-      url: '/user/new'
+      url: '/new'
       templateUrl: 'templates/src/modules/user/new/new.user.html'
       controller: 'NewUserCtrl'
     )

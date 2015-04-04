@@ -1,5 +1,5 @@
-angular.module 'huBEERt.user'
-.controller 'UserCtrl', ($scope, $stateParams, UserServ) ->
+angular.module 'huBEERt.user.show', []
+.controller 'ShowUserCtrl', ($scope, $stateParams, UserServ) ->
   $scope.id = parseInt($stateParams.id)
 
   UserServ.getOne($scope.id).then (result) ->
