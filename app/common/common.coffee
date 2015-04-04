@@ -13,5 +13,7 @@ angular.module 'common.directives', [
 angular.module 'common.filters', [
   'common.filters.helloFilter'
 ]
-angular.module 'common.services', []
+angular.module 'common.services', [
+   'common.services.alerts'
+]
 angular.module 'common.interceptors', []
