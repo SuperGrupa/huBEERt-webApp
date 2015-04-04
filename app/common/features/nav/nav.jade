@@ -1,3 +1,13 @@
-div
-  <a ui-sref="root.main">Main</a> 
-  <a ui-sref="root.user">User</a> 
+header
+  .logo
+    .logo-img(ui-sref="root.main")
+  nav
+    ul.nav.navbar-nav.navbar-right
+      li
+        a(ui-sref="root.main") Main
+      li
+        a(ui-sref="root.user") Users
+      li
+        a() Zarejestruj
+      li
+        a() Zaloguj
