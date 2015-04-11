@@ -1,0 +1,9 @@
+div
+  div(ng-hide='editEnabled')
+    span {{field}}
+    span.edit-btn(ng-click='startEditing()') edit
+      i.ss-write
+  div(ng-show='editEnabled')
+    input.custom-input(type='text' ng-model='field' enter-to-save='save()' focus-on="focusInput")
+    span.edit-btn(style="float: right;" ng-click='save()') save
+      i.ss-write
