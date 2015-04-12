@@ -26,6 +26,10 @@ webdriverUpdate     = require('gulp-protractor').webdriver_update
 karma               = require('karma').server
 connect             = require('gulp-connect')
 
+# configs
+karmaConfig         = require('./test/unit/karma.config')
+protractorConfig    = require('./test/e2e/protractor.config')
+
 paths =
   public: ['public/**']
   assets: ['assets/**']
@@ -185,32 +189,32 @@ gulp.task 'index', ->
   gulp.src(destinations.templates + '/index.html')
   .pipe(gulp.dest(destinations.public))
 
-# phantomChild = null
-# phantomDefer = null
+phantomChild = null
+phantomDefer = null
 
 # standalone test server which runs in the background.
 # doesnt work atm - instead, run `webdriver-manager start`
-# gulp.task 'test:e2e:server', (cb) ->
-#   return cb() if phantomDefer
-#   phantomDefer = Q.defer()
+gulp.task 'test:e2e:server', (cb) ->
+  return cb() if phantomDefer
+  phantomDefer = Q.defer()
 
-#   phantomChild = child_process.spawn('phantomjs', ['--webdriver=4444'], {
-#   })
-#   phantomChild.stdout.on 'data', (data) ->
-#     gutil.log gutil.colors.yellow data.toString()
-#     if data.toString().match 'running on port '
-#       phantomDefer.resolve()
+  phantomChild = child_process.spawn('phantomjs', ['--webdriver=4444'], {
+  })
+  phantomChild.stdout.on 'data', (data) ->
+    gutil.log gutil.colors.yellow data.toString()
+    if data.toString().match 'running on port '
+      phantomDefer.resolve()
     
-#   phantomChild.once 'close', ->
-#     gutil.log "phantomChild closed"
-#     phantomChild.kill() if phantomChild
-#     phantomDefer.reject()
+  phantomChild.once 'close', ->
+    gutil.log "phantomChild closed"
+    phantomChild.kill() if phantomChild
+    phantomDefer.reject()
 
-#   phantomChild.on 'exit', (code) ->
-#     gutil.log "phantomChild exitted"
-#     phantomChild.kill() if phantomChild
+  phantomChild.on 'exit', (code) ->
+    gutil.log "phantomChild exitted"
+    phantomChild.kill() if phantomChild
 
-#   phantomDefer.promise
+  phantomDefer.promise
 
 # You can run it like this:
 # `gulp test:e2e` - runs all e2e tests

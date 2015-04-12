@@ -28,40 +28,59 @@ angular.module 'huBEERt.user'
         AlertsServ.logError(err)
         deferred.reject(err)
     deferred.promise
-###
-  saveOne: (supplierOrder) ->
+
+  saveOne: (user) ->
     deferred = $q.defer()
-    if _.isUndefined(supplierOrder.id) || _.isNaN(supplierOrder.id)
-      Restangular.all('supplier_orders').post(supplier_order: supplierOrder).then (result) ->
-        supplierOrders.push result
-        AlertsServ.logSuccess("You've created a supplier order")
+    if _.isUndefined(user.id) || _.isNaN(user.id)
+      Restangular.all('users').post(user: user).then (result) ->
+        users.push result
+        AlertsServ.logSuccess("Rejestracja zakończona sukcesem")
         deferred.resolve(result)
       , (err) ->
         AlertsServ.logError(err)
         deferred.reject(err)
     else
-      supplierOrder.put().then (result) ->
-        index = _.map(supplierOrders, (u) -> u.id).indexOf(result.id)
-        supplierOrders[index] = result
-        AlertsServ.logSuccess("You've saved a supplier order")
+      user.patch().then (result) ->
+        index = _.map(users, (u) -> u.id).indexOf(result.id)
+        users[index] = result
+        AlertsServ.logSuccess("Edycja zakończona sukcesem")
         deferred.resolve(result)
       , (err) ->
         AlertsServ.logError(err)
         deferred.reject(err)
     deferred.promise
 
-  removeOne: (supplierOrder) ->
+  removeOne: (user) ->
     deferred = $q.defer()
-    if _.isUndefined(supplierOrder.id) || _.isNaN(supplierOrder.id)
+    if _.isUndefined(user.id) || _.isNaN(user.id)
       AlertsServ.logError(err)
       deferred.reject(err)
     else
-      index = _.map(supplierOrders, (u) -> u.id).indexOf(supplierOrder.id)
-      supplierOrder.remove().then (result) ->
-        supplierOrders.splice(index,1)
-        AlertsServ.logSuccess('You removed a supplier')
+      index = _.map(users, (u) -> u.id).indexOf(user.id)
+      user.remove().then (result) ->
+        users.splice(index,1)
+        AlertsServ.logSuccess('Użytkownik został usunięty')
         deferred.resolve(result)
       , (err) ->
         AlertsServ.logError(err)
         deferred.reject(err)
-    deferred.promise###
+    deferred.promise
+
+  unhideOne: (user) ->
+    deferred = $q.defer()
+    if _.isUndefined(user.id) || _.isNaN(user.id)
+      AlertsServ.logError(err)
+      deferred.reject(err)
+    else
+      index = _.map(users, (u) -> u.id).indexOf(user.id)
+      user.put().then (result) ->
+        users.splice(index,1)
+        AlertsServ.logSuccess('Użytkownik został przywrócony')
+        deferred.resolve(result)
+      , (err) ->
+        AlertsServ.logError(err)
+        deferred.reject(err)
+    deferred.promise
+
+
+
