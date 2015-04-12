@@ -41,8 +41,7 @@ angular.module 'huBEERt.user'
         AlertsServ.logError(err)
         deferred.reject(err)
     else
-      user.patch(user: user).then (result) ->
-      #Restangular.one('users', user.id).patch(user: user).then (result) ->
+      user.patch().then (result) ->
         index = _.map(users, (u) -> u.id).indexOf(result.id)
         users[index] = result
         AlertsServ.logSuccess("Edycja zakończona sukcesem")
