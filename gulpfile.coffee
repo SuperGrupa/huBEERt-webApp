@@ -37,6 +37,7 @@ paths =
     'app/css/**/*.scss'
     'public/components/bootstrap/dist/css/bootstrap.css'
     'public/components/components-font-awesome/css/font-awesome.css'
+    'public/components/toastr/toastr.min.css'
   ]
   img: [
     'app/img/**/*.*'
