@@ -4,3 +4,7 @@ angular.module 'huBEERt.user.show', []
 
   UserServ.getOne($scope.id).then (result) ->
     $scope.user = result
+
+  $scope.save = (user) ->
+    UserServ.saveOne(user).then (result) ->
+      $scope.user = result

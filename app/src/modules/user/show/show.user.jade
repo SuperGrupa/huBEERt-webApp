@@ -3,6 +3,7 @@ h1
 h2
   {{user.email}}
 h3
-  {{user.city}}
+  live-edit(field="user.city", on-save="save(user)")
+  //- {{user.city}}
 h3 
   {{user.date_of_birth}}
