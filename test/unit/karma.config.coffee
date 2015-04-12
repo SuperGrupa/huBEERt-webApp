@@ -10,20 +10,16 @@ module.exports = (config) ->
 
       'www/templates/**/*.html'
 
-      # 'www/js/app.js'
       # This is the copy from gulpfile.coffee - you need to keep it up to date.
       'app/common/**/*.coffee'
-      'app/src/app.coffee'     # define angular 'huBEERt' module; add some native/global js variables
+      'app/src/app.coffee'
       'config/config.js'
-      'app/src/locales.coffee'
-      'app/locales/*.js'
       'app/src/app.controller.coffee'
-      'app/src/*/**/*.coffee'  # include all angular submodules (like controllers, directives, services)
-      'app/src/routes.coffee'  # app.config - routes
-      'app/src/app_run.coffee' # app.config; app.run
-      # end of 'www/js/app.js'
+      'app/src/*/**/*.coffee'
+      'app/src/routes.coffee'
+      'app/src/app_run.coffee'
 
-      'test/unit/helpers/**/*.coffee'
+
       'test/unit/**/*.coffee'
     ]
 

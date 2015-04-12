@@ -6,8 +6,7 @@ angular.module 'common.directives.liveEdit'
   scope:
     field: '='
     onSave: '&'
-  controller: 'YourProfileCtrl'
-  templateUrl: 'templates/common/directives/hello/live_edit.directive.html'
+  templateUrl: 'templates/common/directives/live_edit/live_edit.directive.html'
 
   link: (scope, elem, attrs) ->
     scope.save = ->
