@@ -1,4 +1,4 @@
-angular.module 'common.directives.liveEdit'
+angular.module 'common.directives.liveEdit', []
 
 .directive 'liveEdit', ->
   restrict: 'AE'

@@ -1,4 +1,4 @@
-angular.module 'common.directives.enterToSave'
+angular.module 'common.directives.enterToSave', []
 
 .directive  'enterToSave', ->
   link: (scope, element, attrs) ->
