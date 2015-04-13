@@ -4,11 +4,14 @@ node_js:
 script:
   - gulp test:unit
 before_script:
+  - cp config/development.json.example config/development.json
   - npm install -g gulp
   - npm install -g bower
   - npm install -g codeclimate-test-reporter
   - bower install
   - gulp build
+after_script:
+  - codeclimate < coverage/PhantomJS 1.9.8 (Linux)/lcov.info
 addons:
   code_climate:
     repo_token: 9bc93c16ae561b78e7f3933e6c0d25be1ea60cff3e101df657f70ded923a1333
