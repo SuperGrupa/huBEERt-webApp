@@ -6,7 +6,9 @@ script:
 before_script:
   - npm install -g gulp
   - npm install -g bower
+  - npm install -g codeclimate-test-reporter
   - bower install
+  - gulp build
 addons:
   code_climate:
     repo_token: 9bc93c16ae561b78e7f3933e6c0d25be1ea60cff3e101df657f70ded923a1333
