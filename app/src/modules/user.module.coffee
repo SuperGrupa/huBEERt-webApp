@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module 'huBEERt.user', ['ui.bootstrap', 'ui.router', 'huBEERt.user.show', 'huBEERt.user.new', 'huBEERt.user.list']
+angular.module 'huBEERt.user', ['ui.bootstrap', 'ui.router', 'huBEERt.user.show', 'huBEERt.user.new', 'huBEERt.user.list', 'huBEERt.user.edit']
 .config ($stateProvider, $urlRouterProvider) ->
 
   $stateProvider

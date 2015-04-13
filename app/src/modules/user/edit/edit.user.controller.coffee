@@ -1,5 +1,5 @@
-angular.module 'huBEERt.user.new', []
-.controller 'EditUserCtrl', ($scope, UserServ, $state) ->
+angular.module 'huBEERt.user.edit', []
+.controller 'EditUserCtrl', ($scope, UserServ, $stateParams) ->
   $scope.id = parseInt($stateParams.id)
 
   UserServ.getOne($scope.id).then (result) ->

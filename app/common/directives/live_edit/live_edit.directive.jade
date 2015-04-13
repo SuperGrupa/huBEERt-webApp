@@ -1,9 +1,9 @@
 div
   div(ng-hide='editEnabled')
     span {{field | date:'yyyy-MM-dd' }}
-    span.edit-btn(ng-click='startEditing()') edit
+    span.edit-btn(ng-click='startEditing()') Edytuj
       i.ss-write
   div(ng-show='editEnabled')
     input.custom-input(type='{{inputType}}' ng-model='field' enter-to-save='save()' focus-on="focusInput")
-    span.edit-btn(style="float: right;" ng-click='save()') save
+    span.edit-btn(style="float: right;" ng-click='save()') Zapisz
       i.ss-write
