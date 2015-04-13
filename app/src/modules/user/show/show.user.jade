@@ -1,9 +1,11 @@
 h1
-  {{user.firstname}} {{user.lastname}}
+  live-edit(field="user.firstname", on-save="save(user)", input-type="text") 
+h1
+  live-edit(field="user.lastname", on-save="save(user)", input-type="text")
 h2
-  {{user.email}}
+  live-edit(field="user.email", on-save="save(user)", input-type="email")
 h3
-  live-edit(field="user.city", on-save="save(user)")
-  //- {{user.city}}
+  live-edit(field="user.city", on-save="save(user)", input-type="text")
 h3 
-  live-edit(field="user.date_of_birth", on-save="save(user)")
+  live-edit(field="user.date_of_birth", on-save="save(user)", input-type="date")
+

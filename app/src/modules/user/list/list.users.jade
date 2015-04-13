@@ -1,14 +1,23 @@
-| Users
-
 table.table
   tr
-    th Firstname
-    th lastname
+    th Imie
+    th Nazwisko
+    th Ukryty
+    th
+    th
+    th
     th
   tbody
     tr(ng-repeat="user in users")
-      td {{user.firstname}} 
-      td {{user.lastname}} 
+      td {{user.firstname}}
+      td {{user.lastname}}
+      td {{user.hidden}}
       td
-        a(ui-sref="user.show({ id: user.id })") Show
+        a(ui-sref="user.show({ id: user.id })") Pokaż
+      td
+        a(ui-sref="user.edit({ id: user.id })") Edytuj
+      td
+        span.edit-btn(ng-click="removeUser(user)") Ukryj
+      td
+        span.edit-btn(ng-click="unhideUser(user)") Odkryj
 

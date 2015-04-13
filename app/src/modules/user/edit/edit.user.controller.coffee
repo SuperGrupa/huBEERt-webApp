@@ -7,6 +7,5 @@ angular.module 'huBEERt.user.new', []
 
   $scope.save = (user) ->
     UserServ.saveOne(user).then (result) ->
-      $state.go('user.show', {id: result.id})
-
+      $scope.user = result
 

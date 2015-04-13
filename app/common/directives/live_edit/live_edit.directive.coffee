@@ -6,6 +6,7 @@ angular.module 'common.directives.liveEdit', []
   scope:
     field: '='
     onSave: '&'
+    inputType: '@'
   templateUrl: 'templates/common/directives/live_edit/live_edit.directive.html'
 
   link: (scope, elem, attrs) ->

@@ -31,7 +31,6 @@ angular.module 'huBEERt.user'
 
   saveOne: (user) ->
     deferred = $q.defer()
-    console.log user
     if _.isUndefined(user.id) || _.isNaN(user.id)
       Restangular.all('users').post(user: user).then (result) ->
         users.push result
@@ -57,13 +56,12 @@ angular.module 'huBEERt.user'
       AlertsServ.logError(err)
       deferred.reject(err)
     else
-      index = _.map(users, (u) -> u.id).indexOf(user.id)
       user.remove().then (result) ->
-        users.splice(index,1)
         AlertsServ.logSuccess('Użytkownik został usunięty')
         deferred.resolve(result)
       , (err) ->
         AlertsServ.logError(err)
+        console.log err
         deferred.reject(err)
     deferred.promise
 
@@ -73,9 +71,7 @@ angular.module 'huBEERt.user'
       AlertsServ.logError(err)
       deferred.reject(err)
     else
-      index = _.map(users, (u) -> u.id).indexOf(user.id)
       user.put().then (result) ->
-        users.splice(index,1)
         AlertsServ.logSuccess('Użytkownik został przywrócony')
         deferred.resolve(result)
       , (err) ->

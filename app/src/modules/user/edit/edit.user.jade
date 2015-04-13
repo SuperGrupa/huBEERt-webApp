@@ -1,8 +1,17 @@
 form
   .form-group
-      label Adres E-mail
-      input.form-control(type='email', placeholder='Enter email', ng-model="user.email")
+      label Imie
+      input.form-control(type='text', ng-model="user.firstname")
   .form-group
-    label Hasło
-    input.form-control(type='password', placeholder='Password' ng-model="user.password")
-  button.btn.btn-default(type='submit', ng-click="save(user)") Zarejestruj
+    label Nazwisko
+    input.form-control(type='text', ng-model="user.password")
+  .form-group
+    label E-mail
+    input.form-control(type='email', ng-model="user.email")
+  .form-group
+    label Miasto
+    input.form-control(type='text', ng-model="user.city")
+  .form-group
+    label Miasto
+    input.form-control(type='date', ng-model="user.date_of_birth")
+  button.btn.btn-default(type='submit', ng-click="save(user)") Zapisz
