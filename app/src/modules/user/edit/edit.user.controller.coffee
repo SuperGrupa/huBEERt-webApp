@@ -1,5 +1,5 @@
-angular.module 'huBEERt.user.show', []
-.controller 'ShowUserCtrl', ($scope, $stateParams, UserServ) ->
+angular.module 'huBEERt.user.edit', []
+.controller 'EditUserCtrl', ($scope, UserServ, $stateParams) ->
   $scope.id = parseInt($stateParams.id)
 
   UserServ.getOne($scope.id).then (result) ->
@@ -8,3 +8,4 @@ angular.module 'huBEERt.user.show', []
   $scope.save = (user) ->
     UserServ.saveOne(user).then (result) ->
       $scope.user = result
+

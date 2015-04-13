@@ -14,7 +14,7 @@ describe 'Directive: helloDirective', ->
       state = _$state_
 
   describe 'root state', ->
-    it 'should have a tamplateUrl set', ->
+    it 'should have a templateUrl set', ->
       config = state.get('root')
       expect(config.templateUrl).toBe 'templates/src/root.html'
 
