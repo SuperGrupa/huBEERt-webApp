@@ -1,4 +1,4 @@
-angular.module 'common.directives.focusOn'
+angular.module 'common.directives.focusOn', []
 
 .directive 'focusOn', ($timeout, $parse) ->
   link: (scope, element, attrs) ->

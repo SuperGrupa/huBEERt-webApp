@@ -1,5 +1,5 @@
 angular.module 'huBEERt.user'
-.service 'UserServ', ($q, Restangular, AlertsServ) ->
+.service 'UserServ', ($q, Restangular, AlertsServ, $http) ->
   users = []
 
   updateAll: ->
@@ -56,6 +56,7 @@ angular.module 'huBEERt.user'
       AlertsServ.logError(err)
       deferred.reject(err)
     else
+      #$http.delete('/users/' + user.id, {params: {id: user.id}})
       user.remove().then (result) ->
         AlertsServ.logSuccess('Użytkownik został usunięty')
         deferred.resolve(result)
