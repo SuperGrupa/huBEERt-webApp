@@ -40,8 +40,8 @@ module.exports = (config) ->
     reporters: ['progress', 'coverage']
 
     coverageReporter:
-      type : 'html'
-      dir : 'shippable/codecoverage/'
+      type : 'lcov'
+      dir : 'coverage'
 
     preprocessors:
       'app/**/*.coffee': ['coverage']

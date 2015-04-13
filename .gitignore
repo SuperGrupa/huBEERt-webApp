@@ -25,7 +25,7 @@ config/*.json
 
 test/e2e/screenshots/*.png
 
-shippable/
+coverage/
 
 .tmp/
 
