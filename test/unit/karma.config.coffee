@@ -6,8 +6,6 @@ module.exports = (config) ->
     # list of files / patterns to load in the browser
     files: [
       'www/js/vendor.js'
-      'public/components/jquery/dist/jquery.js'
-      'public/components/angular/angular.js'
       'public/components/angular-mocks/angular-mocks.js'
 
       'www/templates/**/*.html'
@@ -44,6 +42,8 @@ module.exports = (config) ->
     coverageReporter:
       type : 'lcov'
       dir : 'coverage'
+      subdir: (browser, platform) ->
+        browser.toLowerCase().split(' ')[0]
 
     preprocessors:
       'app/**/*.coffee': ['coverage']
