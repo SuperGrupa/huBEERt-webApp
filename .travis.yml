@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+  - "0.10"
+script:
+  - gulp test:unit
+before_script:
+  - cp config/development.json.example config/development.json
+  - npm install -g gulp
+  - npm install -g bower
+  - npm install -g codeclimate-test-reporter
+  - bower install
+  - gulp build
+after_script:
+  - codeclimate < coverage/phantomjs/lcov.info
+addons:
+  code_climate:
+    repo_token: 9bc93c16ae561b78e7f3933e6c0d25be1ea60cff3e101df657f70ded923a1333
+notifications:
+  email: false
+deploy:
+  provider:
+    provider: cloudfoundry
+  api: https://api.de.a9s.eu
+  username: dakolech@gmail.com
+  password:
+    secure: HTb2Mr5WIwMan8HzYVQ4Rq2uMJPYAKClePBK/Z/90SkFAjRnZvB8xdPtgetaadYwLPIrBpIuEZavsUUJoXIX8VPo/BVUbkq7kHqG26yO3DRlI7XMDQ+zV2ywGyRx3aBZcblsigcE+tbOz2pSsbrHDfyKVMD2CDf8dOAVI8oU9ys=
+  organization: ''
+  space: test
+  on:
+    repo: SuperGrupa/huBEERt-webApp

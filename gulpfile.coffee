@@ -37,6 +37,7 @@ paths =
     'app/css/**/*.scss'
     'public/components/bootstrap/dist/css/bootstrap.css'
     'public/components/components-font-awesome/css/font-awesome.css'
+    'public/components/toastr/toastr.min.css'
   ]
   img: [
     'app/img/**/*.*'
@@ -236,12 +237,16 @@ gulp.task 'test:e2e', [], ->
 # Runs unit tests using karma.
 # You can run it simply using `gulp test:unit`.
 # You can also pass some karma arguments like this: `gulp test:unit --browsers Chrome`.
-gulp.task 'test:unit', ->
+gulp.task 'test:unit', (cb) ->
   args = ['start', 'test/unit/karma.config.coffee']
   for name in ['browsers', 'reporters']
-    args.push "--#{name}", "#{gulp.env[name]}" if gulp.env.hasOwnProperty(name)
+    args.push "--#{name}", "#{gutil.env[name]}" if gutil.env.hasOwnProperty(name)
 
-  child_process.spawn "node_modules/.bin/karma", args, stdio: 'inherit'
+  child = child_process.spawn "node_modules/.bin/karma", args,
+    stdio: 'inherit'
+  .on 'exit', (code) ->
+    child.kill() if child
+    cb(code)
 
 gulp.task 'watch', ->
   gulp.watch(paths.public, ['public'])
