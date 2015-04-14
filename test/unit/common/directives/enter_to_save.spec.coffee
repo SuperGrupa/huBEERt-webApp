@@ -23,6 +23,6 @@ describe 'Directive: enterToSave', ->
   it 'should call save method when enter is clicked', ->
     element.focus()
     element.trigger($.Event('keypress', { which: 13 }))
-    expect(scope.save.callCount).toBe 1
+    expect(scope.save).toHaveBeenCalled
 
 
