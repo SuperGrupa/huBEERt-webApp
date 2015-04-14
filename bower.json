@@ -17,7 +17,7 @@
     "components-font-awesome": "~4.3.0",
     "angular-retina": "~0.3.0",
     "angular-jwt": "~0.0.4",
-    "toastr": "~2.0.1",
+    "toastr": "~2.1.0",
     "a0-angular-storage": "~0.0.6"
   },
   "devDependencies": {
