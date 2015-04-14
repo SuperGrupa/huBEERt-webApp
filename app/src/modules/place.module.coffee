@@ -1,7 +1,7 @@
 'use strict'
 
-angular.module 'huBEERt.place', ['ui.bootstrap', 'ui.router', 'huBEERt.place.show', 'huBEERt.place.new', 'huBEERt.place.list', 'huBEERt.place.edit']
-.config($stateProvider, $urlStateProvider) ->
+angular.module 'huBEERt.place', ['ui.bootstrap', 'ui.router', 'huBEERt.place.show']
+.config($stateProvider, $urlRouterProvider) ->
     $stateProvider
         .state('place',
             url: '/place'
@@ -10,23 +10,23 @@ angular.module 'huBEERt.place', ['ui.bootstrap', 'ui.router', 'huBEERt.place.sho
             controller: 'PlaceCtrl'
             parent: 'root'
         )
-        .state('place.list',
-            url: 's'
-            templateUrl: 'templates/src/modules/place/list/list.places.html'
-            controller: 'ListPlacesCtrl'
-        )
+        # .state('place.list',
+        #     url: 's'
+        #     templateUrl: 'templates/src/modules/place/list/list.places.html'
+        #     controller: 'ListPlacesCtrl'
+        # )
         .state('place.show',
             url: '/:id'
             templateUrl: 'templates/src/modules/place/show/show.place.html'
             controller: 'ShowPlaceCtrl'
         )
-        .state('place.new',
-            url: '/new'
-            templateUrl: 'templates/src/modules/place/new/new.place.html'
-            controller: 'NewPlaceCtrl'
-        )
-        .state('place.edit',
-            url: '/:id/edit'
-            templateUrl: 'templates/src/modules/place/edit/edit.place.html'
-            controller: 'EditPlaceCtrl'
-        )
+        # .state('place.new',
+        #     url: '/new'
+        #     templateUrl: 'templates/src/modules/place/new/new.place.html'
+        #     controller: 'NewPlaceCtrl'
+        # )
+        # .state('place.edit',
+        #     url: '/:id/edit'
+        #     templateUrl: 'templates/src/modules/place/edit/edit.place.html'
+        #     controller: 'EditPlaceCtrl'
+        # )
