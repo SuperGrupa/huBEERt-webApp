@@ -14,18 +14,23 @@ module.exports = (config) ->
       'app/common/**/*.coffee'
       'app/src/app.coffee'
       'config/config.js'
+      'app/src/constant.coffee'
       'app/src/app.controller.coffee'
       'app/src/*/**/*.coffee'
       'app/src/routes.coffee'
       'app/src/app_run.coffee'
 
 
+      'test/unit/app/helpers/**/*.coffee'
       'test/unit/**/*.coffee'
     ]
 
     exclude: [
       'test/unit/karma.config.coffee'
     ]
+    
+    beforeLaunch: ->
+        setBaseUrl 'http://localhost:3000/api/v1/'
 
     # use dots reporter, as travis terminal does not support escaping sequences
     # possible values: 'dots', 'progress'
