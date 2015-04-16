@@ -56,9 +56,10 @@ angular.module 'huBEERt.user'
       AlertsServ.logError(err)
       deferred.reject(err)
     else
-      #$http.delete('/users/' + user.id, {params: {id: user.id}})
+      index = _.map(users, (u) -> u.id).indexOf(user.id)
       user.remove().then (result) ->
         AlertsServ.logSuccess('Użytkownik został usunięty')
+        users[index].hidden = true
         deferred.resolve(result)
       , (err) ->
         AlertsServ.logError(err)
@@ -72,8 +73,10 @@ angular.module 'huBEERt.user'
       AlertsServ.logError(err)
       deferred.reject(err)
     else
+      index = _.map(users, (u) -> u.id).indexOf(user.id)
       user.put().then (result) ->
         AlertsServ.logSuccess('Użytkownik został przywrócony')
+        users[index].hidden = false
         deferred.resolve(result)
       , (err) ->
         AlertsServ.logError(err)
