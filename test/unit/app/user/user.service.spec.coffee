@@ -10,42 +10,37 @@ describe 'User Service', ->
     UserServ = _UserServ_
 
   afterEach ->
-    $httpBackend.flush()
     $httpBackend.verifyNoOutstandingExpectation()
     $httpBackend.verifyNoOutstandingRequest()
 
+  it 'should exist', ->
+    expect(!!UserServ).toBe yes
 
-  describe 'GET /users', ->
-    beforeEach ->
-      $httpBackend.expect('GET', BACKEND_URL+'/users')
-        .respond(200, ['user1', 'user2'])
+  describe 'GET', ->
+    afterEach ->
+      $httpBackend.flush()
 
-    describe 'updateAll method', ->
-      it 'should get users array', ->
-        UserServ.updateAll()
+    describe '/users', ->
+      beforeEach ->
+        $httpBackend.expect('GET', BACKEND_URL+'/users')
+          .respond(200, ['user1', 'user2'])
 
-    describe 'getAll method', ->
-      it 'should call updateAll method', ->
-        spyOn(UserServ, 'updateAll').andCallThrough
-        UserServ.getAll()
-        expect(UserServ.updateAll).toHaveBeenCalled
+      describe 'updateAll method', ->
+        it 'should get users array', ->
+          UserServ.updateAll()
 
-  describe 'GET /users/1', ->
-    beforeEach ->
-      $httpBackend.expect('GET', BACKEND_URL+'/users/1')
-        .respond(200, {name: 'user', id: 1})
+      describe 'getAll method', ->
+        it 'should call updateAll method', ->
+          spyOn(UserServ, 'updateAll').and.callThrough()
+          UserServ.getAll()
+          expect(UserServ.updateAll).toHaveBeenCalled()
 
-    describe 'getOne method', ->
-      it 'should get one user', ->
-        UserServ.getOne(1).then (result) ->
-          user = result
-          console.log user
+    describe '/users/1', ->
+      beforeEach ->
+        $httpBackend.expect('GET', BACKEND_URL+'/users/1')
+          .respond(200, {id: 1, name: 'user1'})
 
-  describe 'DELETE /users/1', ->
-    beforeEach ->
-      $httpBackend.expect('DELETE', BACKEND_URL+'/users/1')
-        .respond(200, 'user1')
-
-    describe 'removeOne method', ->
-      it 'should get one user', ->
-        UserServ.removeOne(user)
+      describe 'getOne method', ->
+        it 'should get one user', ->
+          UserServ.getOne(1).then (result) ->
+            user = result

@@ -10,6 +10,7 @@ before_script:
   - npm install -g codeclimate-test-reporter
   - bower install
   - gulp build
+  - sed -i '66s/.*/    singleRun: true/' test/unit/karma.config.coffee
 after_script:
   - codeclimate < coverage/phantomjs/lcov.info
 addons:
