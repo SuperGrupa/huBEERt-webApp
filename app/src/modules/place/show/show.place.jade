@@ -1,4 +1,16 @@
 h1
-    | {{place.name}}
-p
-    | {{place.description}}
+    b {{place.name}}
+    img.beers(src="img/five-beers.jpg")
+.col-md-3
+    p Miejsce na adres
+.col-md-6
+    img.main-photo(src="img/bar.jpg")
+.col-md-3
+    .list-group
+        a.list-group-item
+            h3.list-group-item-heading Cudowny piąteczek
+            p.list-group-item-text Już w ten piątek pij za pół ceny
+            | Start: piątek 19:00
+        a.list-group-item
+            h3.list-group-item-heading After-work
+            p.list-group-item-text Start: kwiecień - od poniedziałku do piątku 16:00-18:00

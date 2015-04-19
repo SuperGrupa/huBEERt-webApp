@@ -48,7 +48,7 @@ angular.module 'huBEERt.place'
             , (err) ->
                 AlertsServ.logError(err)
                 deferred.reject(err)
-            deferred.promise
+        deferred.promise
 
     removeOne: (place) ->
         deferred = $q.defer()
@@ -63,7 +63,7 @@ angular.module 'huBEERt.place'
                 AlertsServ.logError(err)
                 console.log err
                 deferred.reject(err)
-            deferred.promise
+        deferred.promise
 
     unhideOne: (place) ->
         deferred = $q.defer()
