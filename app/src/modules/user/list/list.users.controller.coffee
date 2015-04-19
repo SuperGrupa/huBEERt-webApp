@@ -7,7 +7,5 @@ angular.module 'huBEERt.user.list', []
   $scope.removeUser = (user) ->
     UserServ.removeOne(user)
 
-
   $scope.unhideUser = (user) ->
     UserServ.unhideOne(user)
-

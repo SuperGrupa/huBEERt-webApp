@@ -14,7 +14,7 @@ describe 'Directive: enterToSave', ->
       rootScope = _$rootScope_
       scope = rootScope
       scope.save = ->
-      spyOn(scope, "save")
+      spyOn(scope, "save").and.callThrough
       element = angular.element('<input type="text" enter-to-save="save()"></input>')
       compile(element)(scope)
       angular.element(document.body).append(element)

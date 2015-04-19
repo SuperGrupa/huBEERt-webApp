@@ -10,11 +10,14 @@ angular.module 'huBEERt.user'
 
   getAll: ->
     deferred = $q.defer()
-    this.updateAll().then ->
+    if _.isEmpty(users)
+      this.updateAll().then ->
+        deferred.resolve(users)
+      , (err) ->
+        AlertsServ.logError(err)
+        deferred.reject(err)
+    else
       deferred.resolve(users)
-    , (err) ->
-      AlertsServ.logError(err)
-      deferred.reject(err)
     deferred.promise
 
   getOne: (id) ->
@@ -51,6 +54,7 @@ angular.module 'huBEERt.user'
     deferred.promise
 
   removeOne: (user) ->
+    console.log user
     deferred = $q.defer()
     if _.isUndefined(user.id) || _.isNaN(user.id)
       AlertsServ.logError(err)

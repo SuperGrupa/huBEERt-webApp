@@ -10,27 +10,23 @@ module.exports = (config) ->
 
       'www/templates/**/*.html'
 
-      # This is the copy from gulpfile.coffee - you need to keep it up to date.
       'app/common/**/*.coffee'
-      'app/src/app.coffee'
+      'app/src/app.coffee'     # define angular 'huBEERt' module; add some native/global js variables
       'config/config.js'
       'app/src/app.controller.coffee'
-      'app/src/*/**/*.coffee'
-      'app/src/routes.coffee'
-      'app/src/app_run.coffee'
+      'app/src/*/**/*.coffee'  # include all angular submodules (like controllers, directives, services)
+      'app/src/routes.coffee'  # app.config - routes
+      'app/src/app_run.coffee' # app.config; app.run
+      'app/src/constant.coffee'
 
 
+      'test/unit/app/helpers/**/*.coffee'
       'test/unit/**/*.coffee'
     ]
 
     exclude: [
       'test/unit/karma.config.coffee'
     ]
-
-    # use dots reporter, as travis terminal does not support escaping sequences
-    # possible values: 'dots', 'progress'
-    # CLI --reporters progress
-    # reporters: ['progress']
 
     autoWatch: true
 
@@ -67,7 +63,7 @@ module.exports = (config) ->
 
     # Continuous Integration mode
     # if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
+    singleRun: false
 
     ngHtml2JsPreprocessor:
       moduleName: 'templates'

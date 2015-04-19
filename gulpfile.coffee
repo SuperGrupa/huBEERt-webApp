@@ -73,6 +73,7 @@ paths =
       'app/src/*/**/*.coffee'  # include all angular submodules (like controllers, directives, services)
       'app/src/routes.coffee'  # app.config - routes
       'app/src/app_run.coffee' # app.config; app.run
+      'app/src/constant.coffee'
     ]
     tests: [
       'test/unit/**/*.coffee'
