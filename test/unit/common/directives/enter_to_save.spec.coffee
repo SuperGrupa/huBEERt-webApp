@@ -14,7 +14,7 @@ describe 'Directive: enterToSave', ->
       rootScope = _$rootScope_
       scope = rootScope
       scope.save = ->
-      spyOn(scope, "save")
+      spyOn(scope, "save").and.callThrough
       element = angular.element('<input type="text" enter-to-save="save()"></input>')
       compile(element)(scope)
       angular.element(document.body).append(element)
@@ -23,6 +23,6 @@ describe 'Directive: enterToSave', ->
   it 'should call save method when enter is clicked', ->
     element.focus()
     element.trigger($.Event('keypress', { which: 13 }))
-    expect(scope.save.callCount).toBe 1
+    expect(scope.save).toHaveBeenCalled
 
 

@@ -3,6 +3,7 @@ angular.module 'huBEERt'
 .config (RestangularProvider, ENV) ->
   RestangularProvider.setBaseUrl(ENV.API_URL)
   RestangularProvider.setRequestSuffix('')
+  RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
 
 .config [
   "$httpProvider"

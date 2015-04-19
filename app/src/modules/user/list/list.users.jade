@@ -6,7 +6,6 @@ table.table
     th
     th
     th
-    th
   tbody
     tr(ng-repeat="user in users")
       td {{user.firstname}}
@@ -17,7 +16,6 @@ table.table
       td
         a(ui-sref="user.edit({ id: user.id })") Edytuj
       td
-        span.edit-btn(ng-click="removeUser(user)") Ukryj
-      td
-        span.edit-btn(ng-click="unhideUser(user)") Odkryj
+        span.edit-btn(ng-if="!user.hidden", ng-click="removeUser(user)") Ukryj
+        span.edit-btn(ng-if="user.hidden", ng-click="unhideUser(user)") Odkryj
 
