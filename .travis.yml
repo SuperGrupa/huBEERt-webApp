@@ -5,6 +5,7 @@ script:
   - gulp test:unit
 before_script:
   - cp config/development.json.example config/development.json
+  - chmod a+x script.sh
   - ./script.sh
   - npm install -g gulp
   - npm install -g bower
