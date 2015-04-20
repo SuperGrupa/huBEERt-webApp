@@ -1,4 +1,4 @@
-describe 'List Users controller ', ->
+describe 'List User controller ', ->
 
   ListUsersCtrl = {}
   scope = {}

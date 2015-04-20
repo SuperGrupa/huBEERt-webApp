@@ -1,4 +1,4 @@
-describe 'Edit Users controller ', ->
+describe 'Edit User controller ', ->
 
   EditUserCtrl = {}
   scope = {}
