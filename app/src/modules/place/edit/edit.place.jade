@@ -1,0 +1,14 @@
+form
+    .form-group
+        label Nazwa
+        input.form-control(type='text', ng-model="place.name")
+    .form-group
+        label Opis
+        textarea.form-control(type='text', ng-model="place.description")
+    .form-group
+        label Telefon
+        input.form-control(type="text", ng-model="place.phone")
+    .form-group
+        label Email
+        input.form-control(type="email", ng-model="place.email")
+    button.btn.btn-default(type='submit', ng-click="save(place)") Zapisz

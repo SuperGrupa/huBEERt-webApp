@@ -1,16 +1,17 @@
+# Cache, tmp, backupy...
 *~
 .sass-cache
-
-npm-debug.log
-
 build/tmp
 build/dist
 
+# NPM log
+npm-debug.log
+
+# Dako pierdoły + node_modules + bower
 test/screenshots/*
 !test/screenshots/README.md
 test/unit-results/*
 !test/unit-results/README.md
-
 
 node_modules
 public/components
@@ -30,3 +31,6 @@ coverage/
 .tmp/
 
 bower_components/
+
+# Nitrooos
+.project
