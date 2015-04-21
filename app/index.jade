@@ -1,6 +1,7 @@
 doctype html
 html(ng-app='huBEERt')
   head
+    base(href="/")
     meta(charset='utf-8')
     meta(name='viewport',
          content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width')
@@ -10,13 +11,16 @@ html(ng-app='huBEERt')
     title huBEERt
 
     link(href='css/app.css', rel='stylesheet')
+    link(href='css/bootstrap.css', rel='stylesheet')
+    link(href='css/font-awesome.css', rel='stylesheet')
+    link(href='css/toastr.min.css', rel='stylesheet')
     link(rel='icon', type='image/ico', href='img/favicon.ico')
-    
 
     script(src='js/vendor.js')
     script(src='js/app.js')
 
   body
     div(ng-controller='AppCtrl')
+      div(ui-view='nav')
       div(ui-view='')
-      span
+      div(ui-view='footer')

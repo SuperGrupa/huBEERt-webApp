@@ -24,6 +24,7 @@ ngConstant          = require 'gulp-ng-constant'
 webdriverStandalone = require('gulp-protractor').webdriver_standalone
 webdriverUpdate     = require('gulp-protractor').webdriver_update
 karma               = require('karma').server
+connect             = require('gulp-connect')
 
 # configs
 karmaConfig         = require('./test/unit/karma.config')
@@ -36,6 +37,7 @@ paths =
     'app/css/**/*.scss'
     'public/components/bootstrap/dist/css/bootstrap.css'
     'public/components/components-font-awesome/css/font-awesome.css'
+    'public/components/toastr/toastr.min.css'
   ]
   img: [
     'app/img/**/*.*'
@@ -61,6 +63,7 @@ paths =
       'public/components/angular-jwt/dist/angular-jwt.js'
       'public/components/a0-angular-storage/dist/angular-storage.js'
       'public/components/angular-messages/angular-messages.js'
+      'public/components/toastr/toastr.js'
     ]
     app: [
       'app/common/**/*.coffee'
@@ -70,6 +73,7 @@ paths =
       'app/src/*/**/*.coffee'  # include all angular submodules (like controllers, directives, services)
       'app/src/routes.coffee'  # app.config - routes
       'app/src/app_run.coffee' # app.config; app.run
+      'app/src/constant.coffee'
     ]
     tests: [
       'test/unit/**/*.coffee'
@@ -234,12 +238,16 @@ gulp.task 'test:e2e', [], ->
 # Runs unit tests using karma.
 # You can run it simply using `gulp test:unit`.
 # You can also pass some karma arguments like this: `gulp test:unit --browsers Chrome`.
-gulp.task 'test:unit', ->
+gulp.task 'test:unit', (cb) ->
   args = ['start', 'test/unit/karma.config.coffee']
   for name in ['browsers', 'reporters']
-    args.push "--#{name}", "#{gulp.env[name]}" if gulp.env.hasOwnProperty(name)
+    args.push "--#{name}", "#{gutil.env[name]}" if gutil.env.hasOwnProperty(name)
 
-  child_process.spawn "node_modules/.bin/karma", args, stdio: 'inherit'
+  child = child_process.spawn "node_modules/.bin/karma", args,
+    stdio: 'inherit'
+  .on 'exit', (code) ->
+    child.kill() if child
+    cb(code)
 
 gulp.task 'watch', ->
   gulp.watch(paths.public, ['public'])
@@ -256,7 +264,12 @@ gulp.task 'watch', ->
     livereloadServer.changed(file.path)
 
 gulp.task 'server', ->
-  http.createServer(ecstatic(root: 'www')).listen(options.httpPort)
+  connect.server({
+    root: 'www',
+    port: options.httpPort,
+    fallback: 'www/index.html',
+    livereload: true
+  });
   gutil.log gutil.colors.blue "HTTP server listening on #{options.httpPort}"
   if options.open
     url = "http://localhost:#{options.httpPort}/"

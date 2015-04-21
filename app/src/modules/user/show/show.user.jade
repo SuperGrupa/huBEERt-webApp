@@ -1,0 +1,26 @@
+ul.list-unstyled.list-info.profile-show
+  li.row
+    .col-lg-2.col-md-2.col-sm-2.col-xs-2
+      label Imie:
+    .col-lg-4.col-md-4.col-sm-4.col-xs-4
+      live-edit(field="user.firstname", on-save="save(user)", input-type="text")
+  li.row
+    .col-lg-2.col-md-2.col-sm-2.col-xs-2
+      label Nazwisko:
+    .col-lg-4.col-md-4.col-sm-4.col-xs-4
+      live-edit(field="user.lastname", on-save="save(user)", input-type="text")
+  li.row
+    .col-lg-2.col-md-2.col-sm-2.col-xs-2
+      label E-mail:
+    .col-lg-4.col-md-4.col-sm-4.col-xs-4
+      live-edit(field="user.email", on-save="save(user)", input-type="email")
+  li.row
+    .col-lg-2.col-md-2.col-sm-2.col-xs-2
+      label Miasto:
+    .col-lg-4.col-md-4.col-sm-4.col-xs-4
+      live-edit(field="user.city", on-save="save(user)", input-type="text")
+  li.row
+    .col-lg-2.col-md-2.col-sm-2.col-xs-2
+      label Data urodzenia:
+    .col-lg-4.col-md-4.col-sm-4.col-xs-4
+      live-edit(field="user.date_of_birth", on-save="save(user)", input-type="date")

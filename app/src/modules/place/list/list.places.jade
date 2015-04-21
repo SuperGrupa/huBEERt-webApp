@@ -1,0 +1,22 @@
+table.table
+    tr
+        th Nazwa
+        th Adres
+        th Ukryty
+        th
+        th
+        th
+        th
+    tbody
+        tr(ng-repeat="place in places")
+            td {{place.name}}
+            td {{place.address.city}}, ul. {{place.address.street}} {{place.address.number}}
+            td {{place.hidden}}
+            td
+                a(ui-sref="place.show({ id: place.id })") Pokaż
+            td
+                a(ui-sref="place.edit({ id: place.id })") Edytuj
+            td
+                span.edit-btn(ng-click="removePlace(place)") Ukryj
+            td
+                span.edit-btn(ng-click="unhidePlace(place)") Odkryj

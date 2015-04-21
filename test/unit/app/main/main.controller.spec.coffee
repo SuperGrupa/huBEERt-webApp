@@ -16,5 +16,3 @@ describe 'MainCtrl', ->
     MainCtrl = controller 'MainCtrl as main',
       $scope: scope
 
-  it 'should not be null', ->
-    expect(MainCtrl.val).toEqual('Ya Man')

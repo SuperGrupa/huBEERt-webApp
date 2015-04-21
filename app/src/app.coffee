@@ -16,6 +16,8 @@ app = angular.module 'huBEERt', [
   'huBEERt.config'
   'huBEERt.main'
   'huBEERt.alerts'
+  'huBEERt.user'
+  'huBEERt.place'
 ]
 
 window.GLOBALS  ?= {}

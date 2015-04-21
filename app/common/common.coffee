@@ -5,12 +5,17 @@ angular.module 'common', [
   'common.services'
   'common.interceptors'
   'common.footer'
+  'common.nav'
 ]
 angular.module 'common.directives', [
-  'common.directives.helloDirective'
+  'common.directives.enterToSave'
+  'common.directives.focusOn'
+  'common.directives.liveEdit'
 ]
 angular.module 'common.filters', [
-  'common.filters.helloFilter'
+  'common.filters.capitalize'
 ]
-angular.module 'common.services', []
+angular.module 'common.services', [
+   'common.services.alerts'
+]
 angular.module 'common.interceptors', []

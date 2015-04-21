@@ -1,0 +1,17 @@
+form
+  .form-group
+      label Imie
+      input.form-control(type='text', ng-model="user.firstname")
+  .form-group
+    label Nazwisko
+    input.form-control(type='text', ng-model="user.password")
+  .form-group
+    label E-mail
+    input.form-control(type='email', ng-model="user.email")
+  .form-group
+    label Miasto
+    input.form-control(type='text', ng-model="user.city")
+  .form-group
+    label Data urodzenia
+    input.form-control(type='date', ng-model="user.date_of_birth")
+  button.btn.btn-default(type='submit', ng-click="save(user)") Zapisz

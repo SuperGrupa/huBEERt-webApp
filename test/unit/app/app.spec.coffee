@@ -47,11 +47,11 @@ describe 'huBEERt module', ->
     it 'should have huBEERt.config as a dependency', ->
       expect(hasModule('huBEERt.config')).toEqual(true)
 
-    it 'should have huBEERt.locales as a dependency', ->
-      expect(hasModule('huBEERt.locales')).toEqual(true)
-
     it 'should have huBEERt.main as a dependency', ->
       expect(hasModule('huBEERt.main')).toEqual(true)
 
     it 'should have huBEERt.alerts as a dependency', ->
       expect(hasModule('huBEERt.alerts')).toEqual(true)
+
+    it 'should have huBEERt.user as a dependency', ->
+      expect(hasModule('huBEERt.user')).toEqual(true)

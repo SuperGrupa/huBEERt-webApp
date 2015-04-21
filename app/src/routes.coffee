@@ -1,11 +1,25 @@
 # global routes
 angular.module 'huBEERt'
 
-.config ($stateProvider, $urlRouterProvider) ->
+.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
+
+  $locationProvider.html5Mode(true)
 
   $urlRouterProvider.otherwise '/'
 
   $stateProvider
     .state('root',
       templateUrl: 'templates/src/root.html'
+      views:
+        '':
+          templateUrl: 'templates/src/root.html'
+        'footer':
+          templateUrl: 'templates/common/features/footer/footer.html'
+          controller: 'FooterCtrl'
+          controllerAs: 'footer'
+        'nav':
+          templateUrl: 'templates/common/features/nav/nav.html'
+          controller: 'NavCtrl'
+          controllerAs: 'nav'
     )
+
