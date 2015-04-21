@@ -4,8 +4,9 @@ angular.module 'huBEERt.place.edit', []
 
     PlaceServ.getOne($scope.id).then (result) ->
         $scope.place = result
+        delete $scope.place.opening_hours
+        delete $scope.place.address
 
     $scope.save = (place) ->
         PlaceServ.saveOne(place).then (result) ->
             $scope.place = result
-
