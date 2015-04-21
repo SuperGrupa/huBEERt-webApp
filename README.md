@@ -10,6 +10,9 @@ huBEERt WebApp repository
 # Requirements
 
 * NodeJS
+* npm
+* bower
+* gulp
 
 # How to install
 
