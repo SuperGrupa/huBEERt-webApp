@@ -14,6 +14,10 @@ angular.module 'huBEERt'
 
 ]
 
+.run ($rootScope, $state) ->
+  $rootScope.$on '$stateChangeSuccess', (event, toState, toParams, fromState) ->
+    $state.previous = fromState;
+
 convertDateStringsToDates = (input) ->
 
   # Ignore things that aren't objects.

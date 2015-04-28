@@ -31,4 +31,3 @@ angular.module 'huBEERt.user', ['ui.bootstrap', 'ui.router', 'huBEERt.user.show'
       templateUrl: 'templates/src/modules/user/edit/edit.user.html'
       controller: 'EditUserCtrl'
     )
-
