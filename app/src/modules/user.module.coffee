@@ -15,6 +15,7 @@ angular.module 'huBEERt.user', ['ui.bootstrap', 'ui.router', 'huBEERt.user.auth'
       url: 's'
       templateUrl: 'templates/src/modules/user/list/list.users.html'
       controller: 'ListUsersCtrl'
+      data: { requiresLogin: true }
     )
     .state('user.show',
       url: '/:id'

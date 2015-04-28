@@ -11,7 +11,7 @@ angular.module 'huBEERt.user.auth', ['huBEERt.user.auth.login']
       parent: 'user'
     )
     .state('auth.login',
-      url: '^login'
+      url: '^/login'
       templateUrl: 'templates/src/modules/user/auth/login/login.user.html'
       controller: 'LoginUserCtrl'
     )

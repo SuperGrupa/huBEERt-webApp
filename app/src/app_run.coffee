@@ -14,9 +14,13 @@ angular.module 'huBEERt'
 
 ]
 
-.run ($rootScope, $state) ->
+.run ($rootScope, $state, store) ->
   $rootScope.$on '$stateChangeSuccess', (event, toState, toParams, fromState) ->
-    $state.previous = fromState;
+    $state.previous = fromState
+    if (toState.data && toState.data.requiresLogin)
+      if (!store.get('authentication_token'))
+        event.preventDefault()
+        $state.go('auth.login')
 
 convertDateStringsToDates = (input) ->
 
