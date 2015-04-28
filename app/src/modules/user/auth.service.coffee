@@ -1,5 +1,5 @@
 angular.module 'huBEERt.user.auth'
-.service 'AuthServ', ($q, Restangular, AlertsServ, store) ->
+.service 'AuthServ', ($q, Restangular, AlertsServ, store, $state, tokenInterceptor) ->
 
   currentUser = {}
 
@@ -15,9 +15,27 @@ angular.module 'huBEERt.user.auth'
   login: (user) ->
     deferred = $q.defer()
     Restangular.all('auth').all('login').post(user).then (result) ->
-      store.set('authentication_token', result.authentication_token)
-      currentUser = result
-      AlertsServ.logSuccess("Zalogowano pomyślnie.")
+      if result.authentication_token
+        tokenInterceptor.setToken(result.authentication_token)
+        currentUser = result
+        if $state.previous.name
+          $state.go($state.previous).then ->
+            AlertsServ.logSuccess("Zalogowano pomyślnie.")
+        else
+          $state.go('root.main').then ->
+            AlertsServ.logSuccess("Zalogowano pomyślnie.")
+      deferred.resolve(result)
+    , (err) ->
+      AlertsServ.logError(err)
+      deferred.reject(err)
+    deferred.promise
+
+  logout: ->
+    deferred = $q.defer()
+    Restangular.all('auth').customDELETE("logout").then (result) ->
+      store.remove('authentication_token')
+      $state.go('root.main').then ->
+        AlertsServ.logSuccess('Wylogowano pomyślnie')
       deferred.resolve(result)
     , (err) ->
       AlertsServ.logError(err)
