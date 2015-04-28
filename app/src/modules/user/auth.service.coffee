@@ -1,4 +1,4 @@
-angular.module 'huBEERt.auth'
+angular.module 'huBEERt.user.auth'
 .service 'AuthServ', ($q, Restangular, AlertsServ, $state) ->
 
   login: (user) ->

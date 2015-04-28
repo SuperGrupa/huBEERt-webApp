@@ -1,4 +1,4 @@
-angular.module 'huBEERt.auth.login', []
+angular.module 'huBEERt.user.auth.login', []
 .controller 'LoginUserCtrl', ($scope, AuthServ) ->
 
   $scope.user = {}

@@ -17,7 +17,7 @@ app = angular.module 'huBEERt', [
   'huBEERt.main'
   'huBEERt.alerts'
   'huBEERt.user'
-  'huBEERt.auth'
+  'huBEERt.user.auth'
 ]
 
 window.GLOBALS  ?= {}
