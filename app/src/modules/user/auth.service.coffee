@@ -3,6 +3,8 @@ angular.module 'huBEERt.user.auth'
 
   currentUser = {}
 
+  currentUser: currentUser
+
   isAuthenticated: ->
     if currentUser
       true
@@ -33,6 +35,7 @@ angular.module 'huBEERt.user.auth'
   logout: ->
     deferred = $q.defer()
     Restangular.all('auth').customDELETE("logout").then (result) ->
+      currentUser = {}
       store.remove('authentication_token')
       $state.go('root.main').then ->
         AlertsServ.logSuccess('Wylogowano pomyślnie')
