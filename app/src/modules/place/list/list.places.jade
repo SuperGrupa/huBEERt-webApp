@@ -9,13 +9,13 @@ table.table
         th
     tbody
         tr(ng-repeat="place in places")
-            td {{place.name}}
+            td {{place.basic_info.name}}
             td {{place.address.city}}, ul. {{place.address.street}} {{place.address.number}}
-            td {{place.hidden}}
+            td {{place.basic_info.hidden}}
             td
-                a(ui-sref="place.show({ id: place.id })") Pokaż
+                a(ui-sref="place.show({ id: place.basic_info.id })") Pokaż
             td
-                a(ui-sref="place.edit({ id: place.id })") Edytuj
+                a(ui-sref="place.edit({ id: place.basic_info.id })") Edytuj
             td
                 span.edit-btn(ng-click="removePlace(place)") Ukryj
             td

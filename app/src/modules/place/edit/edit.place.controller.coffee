@@ -3,10 +3,8 @@ angular.module 'huBEERt.place.edit', []
     $scope.id = parseInt($stateParams.id)
 
     PlaceServ.getOne($scope.id).then (result) ->
-        $scope.place = result
-        delete $scope.place.opening_hours
-        delete $scope.place.address
+        $scope.basic_info = result.basic_info
 
     $scope.save = (place) ->
         PlaceServ.saveOne(place).then (result) ->
-            $scope.place = result
+            $scope.place = result.basic_info

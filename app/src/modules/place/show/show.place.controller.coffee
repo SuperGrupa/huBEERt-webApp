@@ -3,8 +3,10 @@ angular.module 'huBEERt.place.show', []
     $scope.id = parseInt($stateParams.id)
 
     PlaceServ.getOne($scope.id).then (result) ->
-        $scope.place = result
+        $scope.basic_info    = result.basic_info
+        $scope.address       = result.address
+        $scope.opening_hours = result.opening_hours
 
     $scope.save = (place) ->
         PlaceServ.saveOne(place).then (result) ->
-            $scope.place = result
+            $scope.basic_info = result
