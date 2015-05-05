@@ -260,8 +260,8 @@ gulp.task 'watch', ->
   gulp.watch(paths.templates, ['templates'])
 
   livereloadServer = livereload()
-  gulp.watch(destinations.livereload).on 'change', (file) ->
-    livereloadServer.changed(file.path)
+  livereload.listen()
+  gulp.watch(destinations.livereload).on('change', livereload.changed)
 
 gulp.task 'server', ->
   connect.server({

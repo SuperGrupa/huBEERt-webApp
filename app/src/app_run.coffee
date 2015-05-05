@@ -1,9 +1,11 @@
 angular.module 'huBEERt'
 
-.config (RestangularProvider, ENV) ->
+.config (RestangularProvider, ENV, $httpProvider) ->
   RestangularProvider.setBaseUrl(ENV.API_URL)
   RestangularProvider.setRequestSuffix('')
-  RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'});
+  RestangularProvider.setDefaultHeaders({'Content-Type': 'application/json'})
+
+  $httpProvider.interceptors.push('tokenInterceptor')
 
 .config [
   "$httpProvider"
@@ -13,6 +15,35 @@ angular.module 'huBEERt'
       responseData
 
 ]
+
+.run ($rootScope, $state, tokenInterceptor) ->
+  $rootScope.$on '$stateChangeSuccess', (event, toState, toParams, fromState) ->
+    $state.previous = fromState
+    if (toState.data && toState.data.requiresLogin)
+      if (!tokenInterceptor.getToken())
+        event.preventDefault()
+        $state.go('auth.login')
+
+.factory 'tokenInterceptor', ->
+  token = null
+
+  setToken = (someToken) ->
+    token = someToken
+    return
+
+  getToken = ->
+    token
+
+  request = (config) ->
+    if token
+      config.headers['Authorization'] = token
+    config
+
+  {
+    setToken: setToken
+    getToken: getToken
+    request: request
+  }
 
 convertDateStringsToDates = (input) ->
 
@@ -32,4 +63,8 @@ convertDateStringsToDates = (input) ->
     else convertDateStringsToDates value  if typeof value is "object"
   return
 regexIso8601 = /^(\d{4}|\+\d{6})(?:-(\d{2})(?:-(\d{2})(?:T(\d{2}):(\d{2}):(\d{2})\.(\d{1,})(Z|([\-+])(\d{2}):(\d{2}))?)?)?)?$/
+
+
+
+
 

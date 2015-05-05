@@ -1,5 +1,5 @@
 angular.module 'huBEERt.user'
-.service 'UserServ', ($q, Restangular, AlertsServ, $http) ->
+.service 'UserServ', ($q, Restangular, AlertsServ) ->
   users = []
 
   updateAll: ->
