@@ -1,7 +1,7 @@
 angular.module 'huBEERt.place.address', []
 .service 'AddressServ', ($q, Restangular, AlertsServ, $http) ->
 
-    getOne: (id) ->
+    get: (id) ->
         deferred = $q.defer()
         if _.isNaN(id) || _.isUndefined(id)
             deferred.resolve({})

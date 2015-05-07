@@ -17,7 +17,7 @@ angular.module 'huBEERt.place'
             deferred.reject(err)
         deferred.promise
 
-    getOne: (id) ->
+    get: (id) ->
         deferred = $q.defer()
         if _.isUndefined(id) || _.isNaN(id)
             deferred.resolve({})

@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module 'huBEERt.place', ['ui.bootstrap', 'ui.router', 'huBEERt.place.list', 'huBEERt.place.show', 'huBEERt.place.new', 'huBEERt.place.edit', 'huBEERt.place.address']
+angular.module 'huBEERt.place', ['ui.bootstrap', 'ui.router', 'huBEERt.place.list', 'huBEERt.place.show', 'huBEERt.place.new', 'huBEERt.place.edit', 'huBEERt.place.address', 'huBEERt.place.opening_hours']
 .config ($stateProvider, $urlRouterProvider) ->
 
     $stateProvider
