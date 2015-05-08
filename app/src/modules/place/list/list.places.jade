@@ -17,6 +17,5 @@ table.table
             td
                 a(ui-sref="place.edit({ id: place.id })") Edytuj
             td
-                span.edit-btn(ng-click="removePlace(place)") Ukryj
-            td
-                span.edit-btn(ng-click="unhidePlace(place)") Odkryj
+                span.edit-btn(ng-if="!place.hidden" ng-click="removePlace(place)") Ukryj
+                span.edit-btn(ng-if=" place.hidden" ng-click="unhidePlace(place)") Odkryj

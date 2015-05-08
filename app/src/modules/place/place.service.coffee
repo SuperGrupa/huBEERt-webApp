@@ -1,5 +1,5 @@
 angular.module 'huBEERt.place'
-.service 'PlaceServ', ($q, Restangular, $http) ->
+.service 'PlaceServ', ($q, Restangular, $http, AlertsServ) ->
     places = []
 
     updateAll: ->
