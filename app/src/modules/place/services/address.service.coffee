@@ -32,3 +32,12 @@ angular.module 'huBEERt.place.address', []
             AlertsServ.logError(error)
             deferred.reject(error)
         deferred.promise
+    
+    getStreetsList: (district_id) ->
+        deferred = $q.defer()
+        Restangular.one('districts', district_id).customGET('streets').then (result) ->
+            deferred.resolve(result)
+        , (error) ->
+            AlertsServ.logError(error)
+            deferred.reject(error)
+        deferred.promise
