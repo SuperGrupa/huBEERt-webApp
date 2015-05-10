@@ -16,7 +16,7 @@ angular.module 'huBEERt'
 
 ]
 
-.run ($rootScope, $state, tokenInterceptor) ->
+.run ($rootScope, $state, tokenInterceptor, store) ->
   $rootScope.$on '$stateChangeSuccess', (event, toState, toParams, fromState) ->
     $state.previous = fromState
     if (toState.data && toState.data.requiresLogin)
@@ -24,24 +24,27 @@ angular.module 'huBEERt'
         event.preventDefault()
         $state.go('auth.login')
 
-.factory 'tokenInterceptor', ->
-  token = null
+.factory 'tokenInterceptor', (store) ->
 
   setToken = (someToken) ->
-    token = someToken
+    store.set('token', someToken)
     return
 
   getToken = ->
-    token
+    store.get('token')
+
+  deleteToken = ->
+    store.remove('token')
 
   request = (config) ->
-    if token
-      config.headers['Authorization'] = token
+    if store.get('token')
+      config.headers['Authorization'] = store.get('token')
     config
 
   {
     setToken: setToken
     getToken: getToken
+    deleteToken: deleteToken
     request: request
   }
 

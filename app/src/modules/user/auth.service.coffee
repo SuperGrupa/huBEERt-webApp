@@ -1,5 +1,5 @@
 angular.module 'huBEERt.user.auth'
-.service 'AuthServ', ($q, Restangular, AlertsServ, store, $state, tokenInterceptor) ->
+.service 'AuthServ', ($q, Restangular, AlertsServ, $state, tokenInterceptor) ->
 
   currentUser = {}
 
@@ -36,7 +36,7 @@ angular.module 'huBEERt.user.auth'
     deferred = $q.defer()
     Restangular.all('auth').customDELETE("logout").then (result) ->
       currentUser = {}
-      store.remove('authentication_token')
+      tokenInterceptor.deleteToken()
       $state.go('root.main').then ->
         AlertsServ.logSuccess('Wylogowano pomyślnie')
       deferred.resolve(result)
