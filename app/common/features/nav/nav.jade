@@ -8,9 +8,11 @@ header
       li
         a(ui-sref="user.list") Users
       li
-        a(ui-sref="user.new") Zarejestruj
+        a(ng-if="!isLoggedIn", ui-sref="user.new") Zarejestruj
       li
-        a(ui-sref="auth.login") Zaloguj
+        a(ng-if="!isLoggedIn", ui-sref="auth.login") Zaloguj
       li
-        a(href, ng-click="logout()") Wyloguj
+        a(ng-if="isLoggedIn", ui-sref="user.show({ id: currentUser.id })") {{currentUser.email}}
+      li
+        a(ng-if="isLoggedIn", href, ng-click="logout()") Wyloguj
 
