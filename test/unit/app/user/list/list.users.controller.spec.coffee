@@ -20,6 +20,7 @@ describe 'List Users controller ', ->
           def.promise
         removeOne: ->
         unhideOne: ->
+        
       spyOn(UserServ, 'getAll').and.callThrough()
       spyOn(UserServ, 'removeOne').and.callThrough()
       spyOn(UserServ, 'unhideOne').and.callThrough()

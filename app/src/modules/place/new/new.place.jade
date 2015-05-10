@@ -8,4 +8,13 @@ form
         input.form-control(type="text", ng-model="place.phone")
         label Email
         input.form-control(type="email", ng-model="place.email")
+    
+    .form-inline
+        .form-group
+            label Miasto
+            select(ng-model="address.city" ng-options="city.name for city in cities" ng-change="districtsUpdate()")
+            .districts(ng-show="districtsVisibility")
+                label Dzielnica
+                select(ng-model="address.district", ng-options="district.name for district in districts")
+    
     button.btn.btn-default(type='submit', ng-click="save(place)") Stwórz
