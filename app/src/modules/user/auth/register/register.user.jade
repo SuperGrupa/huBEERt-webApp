@@ -1,0 +1,11 @@
+form
+  .form-group
+      label Adres E-mail
+      input.form-control(type='email', placeholder='Podaj email', ng-model="user.email")
+  .form-group
+      label Login
+      input.form-control(type='text', placeholder='Podaj login', ng-model="user.login")
+  .form-group
+    label Hasło
+    input.form-control(type='password', placeholder='Podaj hasło' ng-model="user.password")
+  button.btn.btn-default(type='submit', ng-click="register(user)") Zarejestruj

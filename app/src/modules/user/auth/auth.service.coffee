@@ -43,7 +43,27 @@ angular.module 'huBEERt.user.auth'
 
         AlertsServ.logSuccess("Zalogowano pomyślnie.")
       else
-        console.log result
+        AlertsServ.logError(result.error)
+      deferred.resolve(result)
+    , (err) ->
+      AlertsServ.logError(err)
+      deferred.reject(err)
+    deferred.promise
+
+  register: (user) ->
+    deferred = $q.defer()
+    Restangular.all('auth').all('register').post(user).then (result) ->
+      if result.token
+        tokenInterceptor.setToken(result.token)
+        storeUser(result)
+
+        if $state.previous.name
+          $state.go($state.previous)
+        else
+          $state.go('root.main')
+
+        AlertsServ.logSuccess("Zarejestrowano pomyślnie.")
+      else
         AlertsServ.logError(result.error)
       deferred.resolve(result)
     , (err) ->
