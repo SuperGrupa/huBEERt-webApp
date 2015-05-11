@@ -6,6 +6,11 @@ angular.module 'huBEERt.user.auth.register', []
 
   $scope.user = {}
 
+  $scope.updateLogin = ->
+    if $scope.user.email && !$scope.form['login'].$dirty
+      $scope.user.login = $scope.user.email.split("@").shift()
+
+
   $scope.register = (user) ->
     AuthServ.register(user)
 
