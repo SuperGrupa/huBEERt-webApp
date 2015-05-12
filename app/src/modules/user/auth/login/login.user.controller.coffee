@@ -4,6 +4,8 @@ angular.module 'huBEERt.user.auth.login', []
   if (AuthServ.isLoggedIn())
     $state.go('root.main')
 
+  $scope.formClicked = false
+
   $scope.user = {}
 
   $scope.login = (user) ->

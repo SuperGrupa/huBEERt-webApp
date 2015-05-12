@@ -87,5 +87,23 @@ angular.module 'huBEERt.user'
         deferred.reject(err)
     deferred.promise
 
+  checkEmail: (email) ->
+    deferred = $q.defer()
+    Restangular.all('users').all('check_email').post(email: email).then (result) ->
+      deferred.resolve(result)
+    , (err) ->
+      AlertsServ.logError(err)
+      deferred.reject(err)
+    deferred.promise
+
+  checkLogin: (login) ->
+    deferred = $q.defer()
+    Restangular.all('users').all('check_login').post(login: login).then (result) ->
+      deferred.resolve(result)
+    , (err) ->
+      AlertsServ.logError(err)
+      deferred.reject(err)
+    deferred.promise
+
 
 
