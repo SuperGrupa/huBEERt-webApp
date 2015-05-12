@@ -16,11 +16,7 @@ angular.module 'huBEERt'
 
 ]
 
-.run ($rootScope, $state, tokenInterceptor, store, AuthServ) ->
-  AuthServ.checkToken().then (result) ->
-    if result != "true"
-      AuthServ.clean()
-
+.run ($rootScope, $state, tokenInterceptor, store) ->
   $rootScope.$on '$stateChangeSuccess', (event, toState, toParams, fromState) ->
     $state.previous = fromState
     if (toState.data && toState.data.requiresLogin)
