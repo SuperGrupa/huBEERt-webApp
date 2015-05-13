@@ -71,14 +71,11 @@ angular.module 'huBEERt.user.auth'
       deferred.reject(err)
     deferred.promise
 
-  clean: ->
-    tokenInterceptor.deleteToken()
-    removeUser()
-
   logout: ->
     deferred = $q.defer()
     Restangular.all('auth').customDELETE("logout").then (result) ->
-      this.clean()
+      tokenInterceptor.deleteToken()
+      removeUser()
 
       $state.go('root.main').then ->
         AlertsServ.logSuccess('Wylogowano pomyślnie')
