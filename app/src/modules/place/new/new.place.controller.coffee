@@ -1,5 +1,5 @@
 angular.module 'huBEERt.place.new', []
-.controller 'NewPlaceCtrl', ($scope, PlaceServ, AddressServ, $state) ->
+.controller 'NewPlaceCtrl', ($scope, PlaceServ, AddressServ, $state, $q) ->
 
     do $scope.init = () ->
         AddressServ.getCitiesList().then (result) ->
@@ -12,7 +12,6 @@ angular.module 'huBEERt.place.new', []
     $scope.districtsUpdate = () ->
         AddressServ.getDistrictsList($scope.address.city.id).then (result) ->
             $scope.districts = result
-            $scope.address.district = $scope.districts[0]
             $scope.visibility =
                 district: true,
                 street: false
@@ -20,9 +19,10 @@ angular.module 'huBEERt.place.new', []
     $scope.streetsUpdate = () ->
         AddressServ.getStreetsList($scope.address.district.id).then (result) ->
             $scope.streets = result
-            $scope.address.street = $scope.streets[0]
             $scope.visibility.street = true
 
     $scope.save = (place) ->
-        PlaceServ.saveOne(place).then (result) ->
-            $state.go('place.show', { id: result.id })
+        PlaceServ.saveOne(place).then (place) ->
+            AddressServ.save(place.id, $scope.address, 'post').then (address) ->
+                $state.go('place.show', { id: place.id })
+

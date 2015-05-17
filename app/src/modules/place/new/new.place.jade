@@ -1,27 +1,4 @@
-form
-    .form-group
-        label Nazwa
-        input.form-control(type="text", ng-model="place.name" focus-on)
-        label Opis
-        textarea.form-control(ng-model="place.description")
-        label Telefon
-        input.form-control(type="text", ng-model="place.phone")
-        label Email
-        input.form-control(type="email", ng-model="place.email")
-    
-    .form-group
-        label Miasto
-        select(ng-model="address.city" ng-options="city.name for city in cities" ng-change="districtsUpdate()")
-        
-        .district(ng-show="visibility.district")
-            label Dzielnica
-            select(ng-model="address.district", ng-options="district.name for district in districts",
-                   ng-change="streetsUpdate()")
-        
-        .street(ng-show="visibility.street")
-            label Ulica
-            select(ng-model="address.street", ng-options="street.name for street in streets")
-            label Numer
-            input(type="number" ng-model="address.street.number" min="1")
+include ../layouts/_place_fields.jade
+include ../layouts/_address_fields.jade
 
-    button.btn.btn-default(type="submit", ng-click="save(place)") Stwórz
+button.btn.btn-default(type="submit", ng-click="save(place)") Stwórz

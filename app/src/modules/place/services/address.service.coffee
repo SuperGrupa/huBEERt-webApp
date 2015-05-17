@@ -41,3 +41,23 @@ angular.module 'huBEERt.place.address', []
             AlertsServ.logError(error)
             deferred.reject(error)
         deferred.promise
+    
+    save: (place_id, address, method = 'patch') ->
+        address_to_post =
+            street: address.street,
+            postcode: address.postcode
+    
+        deferred = $q.defer()
+        if method == 'post'
+            Restangular.one('places', place_id).all('address').post(address: address_to_post).then (result) ->
+                deferred.resolve(result)
+            , (error) ->
+                AlertsServ.logError(error)
+                deferred.reject(error)
+        else
+            address.patch().then (result) ->
+                deferred.resolve(result)
+            , (error) ->
+                AlertsServ.logError(error)
+                deferred.reject(error)
+        deferred.promise
