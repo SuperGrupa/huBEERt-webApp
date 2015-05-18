@@ -27,23 +27,18 @@ describe 'Nav controller ', ->
       spyOn(AuthServ, 'getCurrentUser').and.callThrough()
       spyOn(AuthServ, 'isLoggedIn').and.callThrough()
 
-      scope =
-        $watch: () ->
-          scope.isLoggedIn = AuthServ.isLoggedIn()
-      spyOn(scope, '$watch').and.callThrough()
-
       NavCtrl = $controller 'NavCtrl',
         $scope: scope
         AuthServ: AuthServ
+
+      scope.$digest()
 
 
   it 'should exist', ->
     expect(!!NavCtrl).toBe yes
 
   it 'should call $watch method on scope', ->
-    expect(scope.$watch).toHaveBeenCalled()
-
-  it 'should call $watch method on scope', ->
+    scope.$digest()
     expect(scope.isLoggedIn).toBe(true)
 
   describe 'logout method', ->
