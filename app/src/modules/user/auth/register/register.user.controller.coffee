@@ -20,12 +20,12 @@ angular.module 'huBEERt.user.auth.register', []
       else
         $scope.emailTaken = false
 
-      UserServ.checkLogin(user.login).then (result2) ->
-        if result2 == 'false'
-          $scope.loginTaken = true
-        else
-          $scope.loginTaken = false
+    UserServ.checkLogin(user.login).then (result2) ->
+      if result2 == 'false'
+        $scope.loginTaken = true
+      else
+        $scope.loginTaken = false
 
-        if !$scope.emailTaken && !$scope.loginTaken
-          AuthServ.register(user)
+    if !$scope.emailTaken && !$scope.loginTaken
+      AuthServ.register(user)
 
