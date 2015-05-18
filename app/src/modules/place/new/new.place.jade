@@ -1,4 +1,18 @@
 include ../layouts/_place_fields.jade
 include ../layouts/_address_fields.jade
 
+.form-group
+    label Godziny otwarcia
+    div(ng-repeat="opening_hour in opening_hours")
+        .form-inline
+            label Od dnia
+            select(ng-model="opening_hour.day_from" ng-options="day.name for day in days")
+            label Do dnia
+            select(ng-model="opening_hour.day_to" ng-options="day.name for day in days")
+            label Od godziny
+            input.form-control(type="text" ng-model="opening_hour.from")
+            label Do godziny
+            input.form-control(type="text" ng-model="opening_hour.to")
+    button.btn.btn-default(ng-click="addNewOpeningHour()") Dodaj nowe godziny
+
 button.btn.btn-default(type="submit", ng-click="save(place)") Stwórz

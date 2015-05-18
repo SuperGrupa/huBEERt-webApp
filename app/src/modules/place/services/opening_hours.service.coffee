@@ -12,3 +12,13 @@ angular.module 'huBEERt.place.opening_hours', []
                 AlertsServ.logError(error)
                 deferred.reject(error)
         deferred.promise
+
+    getDaysList: () ->
+        deferred = $q.defer()
+        Restangular.all('opening_hours').customGET('week_days').then (result) ->
+            deferred.resolve(result)
+        , (error) ->
+            AlertsServ.logError(error)
+            deferred.reject(error)
+        deferred.promise
+        
