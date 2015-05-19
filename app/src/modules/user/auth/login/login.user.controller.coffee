@@ -1,16 +1,13 @@
 angular.module 'huBEERt.user.auth.login', []
-.controller 'LoginUserCtrl', ($scope, AuthServ) ->
+.controller 'LoginUserCtrl', ($scope, AuthServ, $state) ->
+
+  if (AuthServ.isLoggedIn())
+    $state.go('root.main')
+
+  $scope.formClicked = false
 
   $scope.user = {}
 
-  $scope.asd = AuthServ.currentUser
-  console.log  $scope.asd
-  $scope.$watch (->
-    AuthServ.currentUser
-  ), ((data) ->
-    $scope.asd = currentUser
-  ), true
   $scope.login = (user) ->
-    AuthServ.login(user).then ->
-      console.log  AuthServ.currentUser
+    AuthServ.login(user)
 

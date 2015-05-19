@@ -1,6 +1,6 @@
-describe 'Main controller ', ->
+describe 'App controller ', ->
 
-  MainCtrl = {}
+  AppCtrl = {}
   scope = {}
   $rootScope = {}
 
@@ -9,12 +9,11 @@ describe 'Main controller ', ->
       $rootScope = _$rootScope_
       scope = $rootScope.$new()
 
-      MainCtrl = $controller 'MainCtrl',
+      AppCtrl = $controller 'AppCtrl',
         $scope: scope
 
       scope.$digest()
 
 
   it 'should exist', ->
-    expect(!!MainCtrl).toBe yes
-
+    expect(!!AppCtrl).toBe yes
