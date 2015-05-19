@@ -54,7 +54,6 @@ angular.module 'huBEERt.user'
     deferred.promise
 
   removeOne: (user) ->
-    console.log user
     deferred = $q.defer()
     if _.isUndefined(user.id) || _.isNaN(user.id)
       AlertsServ.logError(err)
