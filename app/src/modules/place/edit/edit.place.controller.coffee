@@ -1,12 +1,15 @@
 angular.module 'huBEERt.place.edit', []
-.controller 'EditPlaceCtrl', ($scope, PlaceServ, $stateParams) ->
+.controller 'EditPlaceCtrl', ($scope, $stateParams, $state, PlaceServ, AddressServ) ->
     $scope.id = parseInt($stateParams.id)
 
-    PlaceServ.getOne($scope.id).then (result) ->
+    PlaceServ.get($scope.id).then (result) ->
         $scope.place = result
-        delete $scope.place.opening_hours
-        delete $scope.place.address
+    AddressServ.get($scope.id).then (result) ->
+        $scope.address = result
+    AddressServ.getCitiesList().then (result) ->
+        $scope.cities = result
 
     $scope.save = (place) ->
         PlaceServ.saveOne(place).then (result) ->
-            $scope.place = result
+            AddressServ.save($scope.place, $scope.address).then (result) ->
+                $state.go('place.list')

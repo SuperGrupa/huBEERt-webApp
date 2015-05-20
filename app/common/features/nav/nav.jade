@@ -1,14 +1,19 @@
 header
-  .logo
-    .logo-img(ui-sref="root.main")
-  nav
-    ul.nav.navbar-nav.navbar-right
-      li
-        a(ui-sref="root.main") Main
-      li
-        a(ui-sref="user.list") Users
-      li
-        a(ui-sref="user.new") Zarejestruj
-      li
-        a() Zaloguj
-
+    .logo
+        .logo-img(ui-sref="root.main")
+    nav
+        ul.nav.navbar-nav.navbar-right
+            li
+                a(ui-sref="root.main") Główna
+            li
+                a(ui-sref="user.list") Użytkownicy
+            li
+                a(ui-sref="place.list") Puby
+            li
+                a(ng-if="!isLoggedIn", ui-sref="auth.register") Zarejestruj
+            li
+                a(ng-if="!isLoggedIn", ui-sref="auth.login") Zaloguj
+            li
+                a(ng-if="isLoggedIn", ui-sref="user.show({ id: currentUser.id })") {{currentUser.email}}
+            li
+                a(ng-if="isLoggedIn", href, ng-click="logout()") Wyloguj

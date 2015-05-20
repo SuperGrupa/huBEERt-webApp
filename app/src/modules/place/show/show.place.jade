@@ -2,18 +2,19 @@ h1
     b {{place.name}}
     img.beers(src="img/five-beers.jpg")
 .col-md-3
-    small {{place.address.city}}, ul. {{place.address.street}} {{place.address.number}}
+    small {{address.city}}, ul. {{address.street}} {{address.number}}
     iframe.map(src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1797.268735368697!2d20.95823679587856!3d-28.107559181359967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spl!2spl!4v1427140927893")
     h3 Godziny otwarcia
-    div(ng-repeat="opening_hour in place.opening_hours")
+    div(ng-repeat="opening_hour in opening_hours")
         small(ng-repeat="day in opening_hour.days")
             {{day.name}} 
         small {{opening_hour.from}} - 
         small(ng-show="opening_hour.to") {{opening_hour.to}}
         small(ng-hide="opening_hour.to") Do ostatniego klienta
         br
-    h3 Email
-    p {{place.email}}
+    h3 Kontakt
+    p telefon: {{place.phone}}
+    p email: {{place.email}}
 .col-md-6
     img.main-photo(src="img/bar.jpg")
     table.table.table-condensed
@@ -56,5 +57,5 @@ h1
             p.list-group-item-text Już w ten piątek pij za pół ceny
             | Start: piątek 19:00
         a.list-group-item
-            h3.list-group-item-heading After-work
+            h3.list-group-item-heading Fajrant
             p.list-group-item-text Start: kwiecień - od poniedziałku do piątku 16:00-18:00

@@ -56,19 +56,6 @@ describe 'Routes', ->
     it 'should have a url set', ->
       expect(this.config.url).toBe '/:id'
 
-  describe 'user.new state', ->
-    beforeEach ->
-      this.config = state.get('user.new')
-
-    it 'should have a templateUrl set', ->
-      expect(this.config.templateUrl).toBe 'templates/src/modules/user/new/new.user.html'
-
-    it 'should have a controller set', ->
-      expect(this.config.controller).toBe 'NewUserCtrl'
-
-    it 'should have a url set', ->
-      expect(this.config.url).toBe '^/register'
-
   describe 'user.edit state', ->
     beforeEach ->
       this.config = state.get('user.edit')

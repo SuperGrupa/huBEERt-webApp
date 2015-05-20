@@ -1,14 +1,47 @@
 form
     .form-group
         label Nazwa
-        input.form-control(type='text', ng-model="place.name")
+        input.form-control(type="text", ng-model="place.name")
     .form-group
         label Opis
-        textarea.form-control(type='text', ng-model="place.description")
+        textarea.form-control(type="text", ng-model="place.description")
     .form-group
         label Telefon
         input.form-control(type="text", ng-model="place.phone")
     .form-group
         label Email
         input.form-control(type="email", ng-model="place.email")
+    br
+    label Adres
+    .form-group
+        label Kod pocztowy
+        input.form-control(type="text", ng-model="address.postcode")
+    .form-inline
+        label Miasto
+        select.form-control(ng-model="address.city" ng-options="city.name for city in cities" ng-change="districtsUpdate()")   
+        span(ng-show="visibility.district")
+            label Dzielnica
+            select.form-control(ng-model="address.district", ng-options="district.name for district in districts",
+                   ng-change="streetsUpdate()")
+        span(ng-show="visibility.street")
+            label Ulica
+            select.form-control(ng-model="address.street", ng-options="street.name for street in streets")
+            label Numer
+            input.form-control(type="number" ng-model="address.street.number" min="1")
+    br
+    label Godziny otwarcia
+    div(ng-repeat="opening_hour in opening_hours")
+        .form-inline
+            label Od dnia
+            select.form-control(ng-model="opening_hour.day_from" ng-options="day.name for day in days")
+            label Do dnia
+            select.form-control(ng-model="opening_hour.day_to" ng-options="day.name for day in days")
+            label Od godziny
+            input.form-control(type="text" ng-model="opening_hour.from")
+            label Do godziny
+            input.form-control(type="text" ng-model="opening_hour.to")
+    br
+    button.btn.btn-default(ng-click="addNewOpeningHour()") Dodaj nowe godziny
+    br
+    br
     button.btn.btn-default(type='submit', ng-click="save(place)") Zapisz

@@ -1,5 +1,5 @@
 angular.module 'huBEERt.place'
-.service 'PlaceServ', ($q, Restangular, AlertsServ, $http) ->
+.service 'PlaceServ', ($q, Restangular, $http, AlertsServ) ->
     places = []
 
     updateAll: ->
@@ -17,7 +17,7 @@ angular.module 'huBEERt.place'
             deferred.reject(err)
         deferred.promise
 
-    getOne: (id) ->
+    get: (id) ->
         deferred = $q.defer()
         if _.isUndefined(id) || _.isNaN(id)
             deferred.resolve({})

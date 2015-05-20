@@ -1,5 +1,5 @@
 angular.module 'huBEERt.user'
-.service 'UserServ', ($q, Restangular, AlertsServ, $http) ->
+.service 'UserServ', ($q, Restangular, AlertsServ) ->
   users = []
 
   updateAll: ->
@@ -54,7 +54,6 @@ angular.module 'huBEERt.user'
     deferred.promise
 
   removeOne: (user) ->
-    console.log user
     deferred = $q.defer()
     if _.isUndefined(user.id) || _.isNaN(user.id)
       AlertsServ.logError(err)
@@ -85,6 +84,24 @@ angular.module 'huBEERt.user'
       , (err) ->
         AlertsServ.logError(err)
         deferred.reject(err)
+    deferred.promise
+
+  checkEmail: (email) ->
+    deferred = $q.defer()
+    Restangular.all('users').all('check_email').post(email: email).then (result) ->
+      deferred.resolve(result)
+    , (err) ->
+      AlertsServ.logError(err)
+      deferred.reject(err)
+    deferred.promise
+
+  checkLogin: (login) ->
+    deferred = $q.defer()
+    Restangular.all('users').all('check_login').post(login: login).then (result) ->
+      deferred.resolve(result)
+    , (err) ->
+      AlertsServ.logError(err)
+      deferred.reject(err)
     deferred.promise
 
 

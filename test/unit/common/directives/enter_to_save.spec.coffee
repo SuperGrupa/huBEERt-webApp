@@ -25,4 +25,9 @@ describe 'Directive: enterToSave', ->
     element.trigger($.Event('keypress', { which: 13 }))
     expect(scope.save).toHaveBeenCalled
 
+  it 'should not call save method when no-enter is clicked', ->
+    element.focus()
+    element.trigger($.Event('keypress', { which: 12 }))
+    expect(scope.save).not.toHaveBeenCalled
+
 

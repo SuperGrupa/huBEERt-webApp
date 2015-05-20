@@ -9,9 +9,9 @@ describe 'User Service', ->
     $rootScope = _$rootScope_
     UserServ = _UserServ_
 
-  afterEach ->
-    $httpBackend.verifyNoOutstandingExpectation()
-    $httpBackend.verifyNoOutstandingRequest()
+  # afterEach ->
+  #   $httpBackend.verifyNoOutstandingExpectation()
+  #   $httpBackend.verifyNoOutstandingRequest()
 
   it 'should exist', ->
     expect(!!UserServ).toBe yes
@@ -44,3 +44,36 @@ describe 'User Service', ->
         it 'should get one user', ->
           UserServ.getOne(1).then (result) ->
             user = result
+
+  describe 'saveOne method', ->
+    beforeEach ->
+      UserServ.saveOne(user)
+
+    it 'should work', ->
+
+  describe 'removeOne method', ->
+    beforeEach ->
+      UserServ.removeOne(user)
+
+    it 'should work', ->
+
+  describe 'unhideOne method', ->
+    beforeEach ->
+      UserServ.unhideOne(user)
+
+    it 'should work', ->
+
+  describe 'checkEmail method', ->
+    beforeEach ->
+      $httpBackend.expectPOST(BACKEND_URL+'/users/check_email').respond(200, user)
+      UserServ.checkEmail(user)
+
+    it 'should work', ->
+
+  describe 'checkLogin method', ->
+    beforeEach ->
+      $httpBackend.expectPOST(BACKEND_URL+'/users/check_login').respond(200, user)
+      UserServ.checkLogin(user)
+
+    it 'should work', ->
+
