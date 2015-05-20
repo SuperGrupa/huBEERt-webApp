@@ -21,4 +21,18 @@ angular.module 'huBEERt.place.opening_hours', []
             AlertsServ.logError(error)
             deferred.reject(error)
         deferred.promise
-        
+    
+    save: (place_id, opening_hours) ->
+        console.log opening_hours
+    
+        deferred = $q.defer()
+        if opening_hours.length == 0
+            deferred.resolve({})
+        else
+            Restangular.one('places', place_id).all('opening_hours')
+                       .post(opening_hours: opening_hours).then (result) ->
+                deferred.resolve(result)
+            , (error) ->
+                AlertsServ.logError(error)
+                deferred.reject(error)
+        deferred.promise

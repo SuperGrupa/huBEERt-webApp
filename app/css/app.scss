@@ -24,7 +24,6 @@ header {
   }
 }
 
-
 footer {
   background: #3F3939;
   color: #D8D8D8;
@@ -74,6 +73,10 @@ footer {
     width: 250px;
     height: 250px;
     border: 0;
+}
+
+.container {
+    padding-bottom: 35px;
 }
 
 textarea {
