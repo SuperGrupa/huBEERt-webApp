@@ -10,6 +10,10 @@ header
             li
                 a(ui-sref="place.list") Puby
             li
-                a(ui-sref="user.new") Zarejestruj
+                a(ng-if="!isLoggedIn", ui-sref="auth.register") Zarejestruj
             li
-                a() Zaloguj
+                a(ng-if="!isLoggedIn", ui-sref="auth.login") Zaloguj
+            li
+                a(ng-if="isLoggedIn", ui-sref="user.show({ id: currentUser.id })") {{currentUser.email}}
+            li
+                a(ng-if="isLoggedIn", href, ng-click="logout()") Wyloguj

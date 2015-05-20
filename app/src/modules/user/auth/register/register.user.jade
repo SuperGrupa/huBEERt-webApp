@@ -1,0 +1,21 @@
+form(name="form", ng-submit="formClicked = true; form.$valid && register(user)", novalidate="novalidate")
+  .form-group
+    label Adres E-mail
+    input.form-control(type='email', placeholder='Podaj email', ng-model="user.email", name="email", ng-change="updateLogin(); emailTaken=false", required="")
+    .error(ng-show="formClicked && form.email.$invalid")
+      small Niepoprawny email
+    .error(ng-show="emailTaken")
+      small Podany email jest zajęty
+  .form-group
+    label Login
+    input.form-control(type='text', placeholder='Podaj login', ng-model="user.login", name="login", ng-change="loginTaken=false", required="")
+    .error(ng-show="formClicked && form.login.$invalid")
+      small Niepoprawny login
+    .error(ng-show="loginTaken")
+      small Podany login jest zajęty
+  .form-group
+    label Hasło
+    input.form-control(type='password', placeholder='Podaj hasło', ng-model="user.password", name="password", required="", ng-minlength="4")
+    .error(ng-show="formClicked && form.password.$invalid")
+      small Niepoprawne hasło (minimum 4 znaki)
+  button.btn.btn-default(type='submit') Zarejestruj

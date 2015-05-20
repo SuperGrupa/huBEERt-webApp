@@ -1,0 +1,8 @@
+form(name="form", ng-submit="formClicked = true; form.$valid && login(user)", novalidate="novalidate")
+  .form-group
+    label Adres E-mail lub login
+    input.form-control(type='text', placeholder='Podaj email lub login', ng-model="user.email", name="login", required="")
+  .form-group
+    label Hasło
+    input.form-control(type='password', placeholder='Podaj hasło', name="password", ng-model="user.password", required="", ng-minlength="4")
+  button.btn.btn-default(type='submit') Zaloguj

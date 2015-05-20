@@ -52,3 +52,6 @@ describe 'huBEERt module', ->
 
     it 'should have huBEERt.alerts as a dependency', ->
       expect(hasModule('huBEERt.alerts')).toEqual(true)
+
+    it 'should have huBEERt.user as a dependency', ->
+      expect(hasModule('huBEERt.user')).toEqual(true)
