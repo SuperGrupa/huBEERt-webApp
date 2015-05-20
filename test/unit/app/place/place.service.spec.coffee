@@ -40,7 +40,7 @@ describe 'Place Service', ->
                 $httpBackend.expect('GET', BACKEND_URL + '/places/1')
                     .respond(200, {id: 1, name: 'place1'})
 
-            describe 'getOne method', ->
+            describe 'get method', ->
                 it 'should get one user', ->
                     PlaceServ.get(1).then (result) ->
                         place = result
