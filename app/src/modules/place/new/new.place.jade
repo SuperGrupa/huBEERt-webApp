@@ -12,7 +12,7 @@ form
         label Email
         input.form-control(type="email", ng-model="place.email")
     br
-    label Adres
+    h4 Adres
     .form-group
         label Kod pocztowy
         input.form-control(type="text", ng-model="address.postcode")
@@ -29,7 +29,7 @@ form
             label Numer
             input.form-control(type="number" ng-model="address.street.number" min="1")
     br
-    label Godziny otwarcia
+    h4 Godziny otwarcia
     div(ng-repeat="opening_hour in opening_hours")
         .form-inline
             label Od dnia
