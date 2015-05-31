@@ -1,11 +1,11 @@
-{ 
+{
   "name": "huBEERt.config",
   "constants": {
     "ENV":
     {
       "ENV_NAME": "production",
       "BACKEND_URL": "https://lit-garden-6724.herokuapp.com",
-      "API_URL": "https://lit-garden-6724.herokuapp.com/api/v1/places",
+      "API_URL": "https://lit-garden-6724.herokuapp.com/api/v1/"
     }
   }
 }

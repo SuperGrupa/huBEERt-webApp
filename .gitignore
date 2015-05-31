@@ -22,7 +22,7 @@ tmp
 tmp/.pivotal_story_id
 config/config.js
 config/config.coffee
-config/*.json
+config/development.json
 
 test/e2e/screenshots/*.png
 

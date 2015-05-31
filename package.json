@@ -1,8 +1,12 @@
 {
+  "scripts": {
+      "start": "gulp server",
+      "postinstall": "bower install && gulp build --env=production"
+   },
   "name": "huBEERt-webApp",
   "version": "0.1.0",
   "license": "closed",
-  "devDependencies": {
+  "dependencies": {
     "coffee-script": "^1.7.1",
     "coffeelint": "~1.9.0",
     "coffeelint-use-strict": "0.0.1",
