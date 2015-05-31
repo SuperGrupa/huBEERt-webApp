@@ -99,7 +99,7 @@ destinations =
 
 options =
   open: false # open the server in the browser on init?
-  httpPort: 4400
+  httpPort: process.env.PORT || 4400
 
 #globals visible in templates
 globals = switch gutil.env.env
@@ -271,7 +271,7 @@ gulp.task 'server', ->
     root: 'www',
     port: options.httpPort,
     fallback: 'www/index.html',
-    livereload: true
+    livereload: false
   });
   gutil.log gutil.colors.blue "HTTP server listening on #{options.httpPort}"
   if options.open
