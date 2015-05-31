@@ -1,7 +1,7 @@
 {
   "scripts": {
       "start": "gulp server",
-      "postinstall": "bower install && gulp build --env=production"
+      "postinstall": "npm install -g bower && bower install && gulp build --env=production"
    },
   "name": "huBEERt-webApp",
   "version": "0.1.0",
