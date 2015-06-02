@@ -4,6 +4,10 @@ div
     h3 Adres
     small {{address.city}}, ul. {{address.street}} {{address.number}}
 div
+    h3 Rodzaj pubu
+    ul(ng-repeat="category in categories")
+        li {{category.name}}
+div
     h3 Godziny otwarcia
     div(ng-repeat="opening_hour in opening_hours")
         small(ng-repeat="day in opening_hour.days")

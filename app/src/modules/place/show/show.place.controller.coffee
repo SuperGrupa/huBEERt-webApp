@@ -1,5 +1,5 @@
 angular.module 'huBEERt.place.show', []
-.controller 'ShowPlaceCtrl', ($scope, $stateParams, PlaceServ, AddressServ, OpeningHoursServ) ->
+.controller 'ShowPlaceCtrl', ($scope, $stateParams, PlaceServ, AddressServ, OpeningHoursServ, CategoriesServ) ->
     $scope.id = parseInt($stateParams.id)
 
     PlaceServ.get($scope.id).then (result) ->
@@ -8,6 +8,8 @@ angular.module 'huBEERt.place.show', []
         $scope.address = result
     OpeningHoursServ.get($scope.id).then (result) ->
         $scope.opening_hours = result
+    CategoriesServ.get($scope.id).then (result) ->
+        $scope.categories = result
 
     $scope.save = (place) ->
         PlaceServ.saveOne(place).then (result) ->
