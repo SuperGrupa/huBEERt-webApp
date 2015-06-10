@@ -8,6 +8,7 @@ build/dist
 npm-debug.log
 
 # Dako pierdoły + node_modules + bower
+.idea/*
 test/screenshots/*
 !test/screenshots/README.md
 test/unit-results/*
