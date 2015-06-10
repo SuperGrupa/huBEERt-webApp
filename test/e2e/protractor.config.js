@@ -24,5 +24,16 @@ exports.config = {
   //  'browserName': 'phantomjs',
   //  'phantomjs.binary.path': require('phantomjs').path
   //}
-  ]
+  ],
+
+  mocks: {
+    dir: 'mocks',
+  },
+
+  onPrepare: function(){
+    require('protractor-http-mock').config = {
+      rootDirectory: __dirname,
+      protractorConfig: 'protractor.config'
+    };
+  }
 };
