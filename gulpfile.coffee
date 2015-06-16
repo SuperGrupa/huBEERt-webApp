@@ -99,7 +99,7 @@ destinations =
 
 options =
   open: false # open the server in the browser on init?
-  httpPort: 4400
+  httpPort: process.env.HTTP_PORT || 4400
 
 #globals visible in templates
 globals = switch gutil.env.env
@@ -239,12 +239,15 @@ gulp.task 'test:e2e', [], ->
     .on('error', (notify.onError((error) -> error.message)))
 
 gulp.task 'test:sauce', [], ->
+  args = ['--baseUrl', "http://localhost:#{options.httpPort}"]
+
   protractorTests = paths.scripts.e2etests
   protractorTests = gulp.env.specs.split(',') if gulp.env.specs
 
   gulp.src(protractorTests)
     .pipe(protractor.protractor({
       configFile: "test/e2e/protractor-sauce.config.js",
+      args: args
     }))
     .on('error', (notify.onError((error) -> error.message)))
 
