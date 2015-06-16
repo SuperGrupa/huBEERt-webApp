@@ -35,5 +35,8 @@ exports.config = {
       rootDirectory: __dirname,
       protractorConfig: 'protractor.config'
     };
+     var FactoryGirl = require('factory_girl');
+     FactoryGirl.definitionFilePaths = [__dirname + '/factories'];
+     FactoryGirl.findDefinitions();
   }
 };

@@ -9,7 +9,7 @@
     "csslint": "~0.10.0",
     "ecstatic": "~0.7.0",
     "fs": "0.0.2",
-    "gulp": "~3.8.0",
+    "gulp": "~3.9.0",
     "gulp-cache": "^0.2.0",
     "gulp-changed": "~1.2.0",
     "gulp-clean": "~0.3.0",
@@ -48,5 +48,8 @@
     "q": "^1.1.2",
     "run-sequence": "~1.0.0",
     "yargs": "^3.7.0"
+  },
+  "dependencies": {
+    "factory_girl": "^0.2.2"
   }
 }

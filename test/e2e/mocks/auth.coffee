@@ -1,4 +1,5 @@
 config = require('../helpers/config.helper')
+FactoryGirl = require('factory_girl')
 
 module.exports = [
   {
@@ -6,28 +7,14 @@ module.exports = [
       path: config.baseURL + 'auth/login'
       method: 'POST'
     response:
-      data:
-        token: 'some token'
-        user:
-          id: 1
-          email: 'email@site.com'
-          login: "login"
-          firstname: "firstname"
-          lastname: "lastname"
+      data: FactoryGirl.create('user')
   },
   {
     request:
       path: config.baseURL + 'auth/register'
       method: 'POST'
     response:
-      data:
-        token: 'some token'
-        user:
-          id: 1
-          email: 'email@site.com'
-          login: "login"
-          firstname: "firstname"
-          lastname: "lastname"
+      data: FactoryGirl.create('user')
   },
   {
     request:
