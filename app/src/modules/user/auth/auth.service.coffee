@@ -32,6 +32,7 @@ angular.module 'huBEERt.user.auth'
   login: (user) ->
     deferred = $q.defer()
     Restangular.all('auth').all('login').post(user).then (result) ->
+      console.log result
       if result.token
         tokenInterceptor.setToken(result.token)
         storeUser(result)

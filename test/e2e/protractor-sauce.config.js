@@ -1,6 +1,8 @@
 'use strict';
 require('coffee-script/register');
 
+var port =  4444;
+
 exports.config = {
   jasmineNodeOpts: {
     showColors: true,
