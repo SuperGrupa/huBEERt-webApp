@@ -241,16 +241,23 @@ gulp.task 'test:e2e', [], ->
 gulp.task 'test:sauce', [], ->
   args = ['--baseUrl', "http://localhost:#{options.httpPort}"]
   args.push 'debug' if argv.debug
-  args.push '--capabilities.browserName', 'firefox' if argv.firefox
   args.push '--capabilities.browserName', 'chrome' if argv.chrome
+  if argv.firefox
+    args.push '--capabilities.browserName', 'firefox'
+    args.push '--capabilities.platform', 'Windows 7'
   if argv.ie11
     args.push '--capabilities.browserName', 'internet explorer'
     args.push '--capabilities.platform', 'Windows 7'
     args.push '--capabilities.version', '11.0'
-  if argv.safari
-    args.push '--capabilities.browserName', 'safari'
-    args.push '--capabilities.platform', 'OS X 10.10'
-    args.push '--capabilities.version', '8.0'
+  if argv.ie10
+    args.push '--capabilities.browserName', 'internet explorer'
+    args.push '--capabilities.platform', 'Windows 7'
+    args.push '--capabilities.version', '10.0'
+  if argv.ie9
+    args.push '--capabilities.browserName', 'internet explorer'
+    args.push '--capabilities.platform', 'Windows 7'
+    args.push '--capabilities.version', '9.0'
+
 
   protractorTests = paths.scripts.e2etests
   protractorTests = gulp.env.specs.split(',') if gulp.env.specs

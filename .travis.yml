@@ -5,8 +5,9 @@ script:
 - gulp test:unit
 - gulp test:sauce --chrome
 - gulp test:sauce --firefox
-- gulp test:sauce --safari
 - gulp test:sauce --ie11
+- gulp test:sauce --ie10
+- gulp test:sauce --ie9
 before_script:
 - cp config/development.json.example config/development.json
 - chmod a+x script.sh
