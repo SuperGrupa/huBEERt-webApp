@@ -1,8 +1,6 @@
 'use strict';
 require('coffee-script/register');
 
-var port =  4444;
-
 exports.config = {
   jasmineNodeOpts: {
     showColors: true,
@@ -11,20 +9,13 @@ exports.config = {
 
   specs: ['test/e2e/**/*.scenario.coffee'],
 
-  seleniumArgs: ['-browserTimeout=60'],
-
-  seleniumAddress: 'http://localhost:4444/wd/hub',
-
-  multiCapabilities: [
-    {
-      'browserName': 'chrome'
-    }
-  //},
-  //{
-  //  'browserName': 'phantomjs',
-  //  'phantomjs.binary.path': require('phantomjs').path
-  //}
-  ],
+  sauceUser: process.env.SAUCE_USERNAME,
+  sauceKey: process.env.SAUCE_ACCESS_KEY,
+  capabilities: {
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'browserName': 'chrome'
+  },
 
   mocks: {
     dir: 'mocks',

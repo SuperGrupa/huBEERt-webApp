@@ -11,5 +11,4 @@ describe 'huBEERt', ->
     element(By.model('user.email')).sendKeys('email@site.com')
     element(By.model('user.password')).sendKeys('password')
     element(By.css('.btn')).click()
-    # browser.sleep(55000)
     expect(browser.getCurrentUrl()).not.toContain '/register'

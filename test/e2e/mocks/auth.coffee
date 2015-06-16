@@ -31,5 +31,13 @@ module.exports = [
     response:
       data:
         "true"
+  },
+  {
+    request:
+      path: config.baseURL + 'auth/logout'
+      method: 'DELETE'
+    response:
+      data:
+        "true"
   }
 ]
