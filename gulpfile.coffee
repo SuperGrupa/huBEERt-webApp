@@ -99,11 +99,7 @@ destinations =
 
 options =
   open: false # open the server in the browser on init?
-<<<<<<< HEAD
   httpPort: process.env.PORT || 4400
-=======
-  httpPort: process.env.HTTP_PORT || 4400
->>>>>>> develop
 
 #globals visible in templates
 globals = switch gutil.env.env
