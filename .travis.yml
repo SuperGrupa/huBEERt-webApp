@@ -1,20 +1,22 @@
 language: node_js
 node_js:
-  - "0.10"
+- '0.10'
 script:
-  - gulp test:unit
+- gulp test:unit
+- gulp test:sauce
 before_script:
-  - cp config/development.json.example config/development.json
-  - chmod a+x script.sh
-  - ./script.sh
-  - npm install -g gulp
-  - npm install -g bower
-  - npm install -g codeclimate-test-reporter
-  - bower install
-  - gulp build
+- cp config/development.json.example config/development.json
+- chmod a+x script.sh
+- "./script.sh"
+- npm install -g gulp
+- npm install -g bower
+- npm install -g codeclimate-test-reporter
+- bower install
+- gulp build
 after_script:
-  - codeclimate < coverage/phantomjs/lcov.info
+- codeclimate < coverage/phantomjs/lcov.info
 addons:
+  sauce_connect: true
   code_climate:
     repo_token: 9bc93c16ae561b78e7f3933e6c0d25be1ea60cff3e101df657f70ded923a1333
 notifications:
@@ -30,3 +32,7 @@ deploy:
   space: test
   on:
     repo: SuperGrupa/huBEERt-webApp
+env:
+  global:
+  - secure: mWXrLONrZs1gwgZMS3+sHKJ7qZ2SZ311/xeWYx4wwhF2uSmkRQaW+gjZAGsh06Wu5uh+sJMSkoN/PvbMJGA6DioxHd+xiT9EqtdpWt0cE+IzfuvsD5bkpau2upBLxeikZjaGZCKeICbUh+5ukUgrI0yqdAFIZj5MN/h0vQj3i+U=
+  - secure: bh2rUY2MgFKycfis/HlDWqFk2H8WZAYIq6CAmG5r3l7wFmgd7+juIel3YHskuf+kdVrnwKCjrEfBKnsL1qNVa1PihwhEStm1RkqW2bvQu/cvcWCsAaSke4BU6GtNJCeIDyPzHIXW77ypj8jYJpPryERyt5LouX+CD/JIvGxxAgQ=
