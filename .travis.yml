@@ -3,7 +3,7 @@ node_js:
 - '0.10'
 script:
 - gulp test:unit
-- gulp test:sauce
+- gulp test:e2e
 before_script:
 - cp config/development.json.example config/development.json
 - chmod a+x script.sh
