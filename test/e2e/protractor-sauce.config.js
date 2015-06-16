@@ -16,19 +16,19 @@ exports.config = {
     'build': process.env.TRAVIS_BUILD_NUMBER,
   },
 
-  multiCapabilities: [{
-    'browserName': 'chrome'
-  }, {
-    'browserName': 'firefox'
-  }, {
-    "browserName": 'internet explorer',
-    'platform': 'Windows 7',
-    'version': '11.0'
-  }, {
-    'browserName': 'safari',
-    'platform': 'OS X 10.10',
-    'version': '8.0'
-  }],
+  // multiCapabilities: [{
+  //   'browserName': 'chrome'
+  // }, {
+  //   'browserName': 'firefox'
+  // }, {
+  //   "browserName": 'internet explorer',
+  //   'platform': 'Windows 7',
+  //   'version': '11.0'
+  // }, {
+  //   'browserName': 'safari',
+  //   'platform': 'OS X 10.10',
+  //   'version': '8.0'
+  // }],
 
   mocks: {
     dir: 'mocks',
