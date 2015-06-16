@@ -4,6 +4,7 @@ node_js:
 script:
 - gulp test:unit
 - gulp test:e2e
+- gulp test:sauce
 before_script:
 - cp config/development.json.example config/development.json
 - chmod a+x script.sh
