@@ -15,7 +15,8 @@ exports.config = {
   sauceKey: process.env.SAUCE_ACCESS_KEY,
   capabilities: {
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'browserName': 'chrome'
   },
 
   mocks: {
