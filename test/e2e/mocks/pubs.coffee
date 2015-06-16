@@ -1,9 +1,7 @@
-config = require('../helpers/config.helper')
-
 module.exports = [
   {
     request:
-      path: config.baseURL + 'auth/login'
+      path: 'http://localhost:3000/api/v1/auth/login'
       method: 'POST'
     response:
       data:
@@ -17,7 +15,7 @@ module.exports = [
   },
   {
     request:
-      path: config.baseURL + 'auth/register'
+      path: 'http://localhost:3000/api/v1/auth/register'
       method: 'POST'
     response:
       data:
@@ -31,7 +29,7 @@ module.exports = [
   },
   {
     request:
-      path: config.baseURL + 'users/check_email'
+      path: 'http://localhost:3000/api/v1/users/check_email'
       method: 'POST'
     response:
       data:
@@ -39,7 +37,7 @@ module.exports = [
   },
   {
     request:
-      path: config.baseURL + 'users/check_login'
+      path: 'http://localhost:3000/api/v1/users/check_login'
       method: 'POST'
     response:
       data:
