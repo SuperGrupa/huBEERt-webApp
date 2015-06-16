@@ -37,7 +37,7 @@
     "q": "^1.1.2",
     "run-sequence": "~1.0.0",
     "yargs": "^3.7.0"
-  }, 
+  },
   "devDependencies": {
     "gulp-livereload": "~3.8.0",
     "karma": "^0.12.1",
@@ -54,6 +54,6 @@
     "phantomjs": "^1.9.11",
     "protractor": "^2.0.0",
     "protractor-coffee-preprocessor": "0.0.1",
-    "protractor-http-mock": "^0.1.13",
+    "protractor-http-mock": "^0.1.13"
   }
 }
