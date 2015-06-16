@@ -26,7 +26,7 @@ deploy:
   provider: heroku
   app: still-wave-2336
   api_key:
-    secure: dsb1gliFO15HhIBPhvv0jElCKGMzBjoRn4IcHDfVxHDILz2uGMWUNcEhpFueUZQkIfEGIoRzzJ+EY17pN/zKxdQwOVuLyB5fwDZccYYsaVO+fe+keFUmdAuXBpXXKA+xGOQkOlfPJT0edRdLh/2u1Yb0+Zo2pxjkawMGA95l0oU=
+    secure: a9kKzx9bFYJD9HbtWd7Uu60YN47kqir2CC9tzKCklId0H3RosnRyGYHIZ+gdr24big7kO88dMkK2bJnqET0YT2yHxwXpYfOdKIWC7XPgKYjdTJfwnr6a54kLVRBfw/sLEYBh9zDcD180NPHaOJpEq0Bv9HpD61mEwfxpEA3AuU4=
 env:
   global:
   - secure: mWXrLONrZs1gwgZMS3+sHKJ7qZ2SZ311/xeWYx4wwhF2uSmkRQaW+gjZAGsh06Wu5uh+sJMSkoN/PvbMJGA6DioxHd+xiT9EqtdpWt0cE+IzfuvsD5bkpau2upBLxeikZjaGZCKeICbUh+5ukUgrI0yqdAFIZj5MN/h0vQj3i+U=
