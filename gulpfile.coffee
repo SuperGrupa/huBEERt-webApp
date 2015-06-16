@@ -238,6 +238,20 @@ gulp.task 'test:e2e', [], ->
     }))
     .on('error', (notify.onError((error) -> error.message)))
 
+gulp.task 'test:sauce', [], ->
+  args = ['--baseUrl', "http://localhost:#{options.httpPort}"]
+  args.push 'debug' if argv.debug
+
+  protractorTests = paths.scripts.e2etests
+  protractorTests = gulp.env.specs.split(',') if gulp.env.specs
+
+  gulp.src(protractorTests)
+    .pipe(protractor.protractor({
+      configFile: "test/e2e/protractor-sauce.config.js",
+      args: args
+    }))
+    .on('error', (notify.onError((error) -> error.message)))
+
 # Runs unit tests using karma.
 # You can run it simply using `gulp test:unit`.
 # You can also pass some karma arguments like this: `gulp test:unit --browsers Chrome`.

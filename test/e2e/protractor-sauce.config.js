@@ -1,8 +1,6 @@
 'use strict';
 require('coffee-script/register');
 
-var port =  4444;
-
 exports.config = {
   jasmineNodeOpts: {
     showColors: true,
@@ -16,8 +14,21 @@ exports.config = {
   capabilities: {
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     'build': process.env.TRAVIS_BUILD_NUMBER,
-    'browserName': 'chrome'
   },
+
+  multiCapabilities: [{
+    'browserName': 'chrome'
+  }, {
+    'browserName': 'firefox'
+  }, {
+    "browserName": 'internet explorer',
+    'platform': 'Windows 7',
+    'version': '11.0'
+  }, {
+    'browserName': 'safari',
+    'platform': 'OS X 10.10',
+    'version': '8.0'
+  }],
 
   mocks: {
     dir: 'mocks',
