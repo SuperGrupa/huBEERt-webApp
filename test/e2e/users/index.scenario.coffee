@@ -9,13 +9,6 @@ describe 'huBEERt', ->
     console.info('\nrunning:', jasmine.getEnv().currentSpec.description)
     mock(['users', 'auth'])
 
-  it "should login a user", ->
-    browser.get('/login')
-    element(By.model('user.email')).sendKeys('email@site.com')
-    element(By.model('user.password')).sendKeys('password')
-    element(By.css('.btn')).click()
-    expect(browser.getCurrentUrl()).not.toContain '/login'
-
   it "should show users", ->
     browser.get('/users')
     usersNumber = element.all(By.repeater('user in users')).count()
@@ -36,17 +29,12 @@ describe 'huBEERt', ->
       browser.get('/users')
       element.all(By.css('td a')).first().click()
 
-    it "should show firstUser firstname", ->
-      el = element(By.css('body'))
-      expect(el.getText()).toContain firstUser.firstname
-
-    it "should show firstUser lastname", ->
-      el = element(By.css('body'))
-      expect(el.getText()).toContain firstUser.lastname
-
     it "should show firstUser email", ->
       el = element(By.css('body'))
       expect(el.getText()).toContain firstUser.email
+
+    it "should not show users page", ->
+      expect(browser.getCurrentUrl()).not.toContain 'users'
 
   describe 'edit firstUser', ->
     beforeEach ->
@@ -56,3 +44,9 @@ describe 'huBEERt', ->
     it "should show firstUser email", ->
       el = element(By.css('body'))
       expect(el.getText()).toContain firstUser.email
+
+    it "should not show users page", ->
+      expect(browser.getCurrentUrl()).not.toContain 'users'
+
+    it "should show edit users page", ->
+      expect(browser.getCurrentUrl()).toContain 'edit'
