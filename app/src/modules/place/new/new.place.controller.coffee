@@ -7,6 +7,7 @@ angular.module 'huBEERt.place.new', []
         OpeningHoursServ.getDaysList().then (result) ->
             $scope.days = result
             $scope.addNewOpeningHour()
+        $scope.categories = [{name: 'muzyczny'}, {name: 'irish'}]
 
         $scope.place = {}
         $scope.address = {}

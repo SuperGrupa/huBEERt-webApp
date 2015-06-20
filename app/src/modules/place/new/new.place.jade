@@ -43,5 +43,10 @@ form
     br
     button.btn.btn-default(ng-click="addNewOpeningHour()") Dodaj nowe godziny
     br
+    h4 Kategorie
+    div(ng-repeat="category in categories")
+        input(type="checkbox")
+        label {{category.name}}
+    br
     br
     button.btn.btn-default(type="submit", ng-click="save(place)") Stwórz

@@ -2,7 +2,9 @@ h1
     strong {{place.name}}
 div
     h3 Adres
-    small {{address.city}}, ul. {{address.street}} {{address.number}}
+    p
+        strong {{address.city}}
+        , ul. {{address.street}} {{address.number}}
 div
     h3 Rodzaj pubu
     ul(ng-repeat="category in categories")
@@ -11,8 +13,8 @@ div
     h3 Godziny otwarcia
     div(ng-repeat="opening_hour in opening_hours")
         small(ng-repeat="day in opening_hour.days")
-            {{day.name}} 
-        small {{opening_hour.from}} - 
+            {{day.name}}
+        small {{opening_hour.from}} -
         small(ng-show="opening_hour.to") {{opening_hour.to}}
         small(ng-hide="opening_hour.to") Do ostatniego klienta
         br
