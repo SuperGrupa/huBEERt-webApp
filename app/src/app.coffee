@@ -14,10 +14,10 @@ app = angular.module 'huBEERt', [
   'angular-storage'
   'ngMessages'
   'huBEERt.config'
-  'huBEERt.main'
   'huBEERt.alerts'
   'huBEERt.user'
   'huBEERt.place'
+  'huBEERt.search'
   'huBEERt.user.auth'
 ]
 
