@@ -1,61 +1,24 @@
 h1
-    b {{place.name}}
-    img.beers(src="img/five-beers.jpg")
-.col-md-3
-    small {{address.city}}, ul. {{address.street}} {{address.number}}
-    iframe.map(src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1797.268735368697!2d20.95823679587856!3d-28.107559181359967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spl!2spl!4v1427140927893")
+    strong {{place.name}}
+div
+    h3 Adres
+    p
+        strong {{address.city}}
+        , ul. {{address.street}} {{address.number}}
+div
+    h3 Rodzaj pubu
+    ul(ng-repeat="category in categories")
+        li {{category.name}}
+div
     h3 Godziny otwarcia
     div(ng-repeat="opening_hour in opening_hours")
         small(ng-repeat="day in opening_hour.days")
-            {{day.name}} 
-        small {{opening_hour.from}} - 
+            {{day.name}}
+        small {{opening_hour.from}} -
         small(ng-show="opening_hour.to") {{opening_hour.to}}
         small(ng-hide="opening_hour.to") Do ostatniego klienta
         br
+div(ng-show="place.phone || place.email")
     h3 Kontakt
-    p telefon: {{place.phone}}
-    p email: {{place.email}}
-.col-md-6
-    img.main-photo(src="img/bar.jpg")
-    table.table.table-condensed
-        thead
-            tr
-                th Piwa
-                th
-        tbody
-            tr
-                td Tyskie klasyczne
-                td 5,00zł
-            tr
-                td Tyskie gronie
-                td 5,00zł
-            tr
-                td Fortuna czarna
-                td 6,00zł
-            tr
-                td Fortuna miodowa
-                td 7,00zł
-            tr
-                td Lech Pils
-                td 5,00zł
-    table.table.table-condensed
-        thead
-            tr
-                th Shoty
-                th
-        tbody
-            tr
-                td Szybka zemsta
-                td 6,00zł
-            tr
-                td Chciwy szef
-                td 7,50zł
-.col-md-3
-    .list-group
-        a.list-group-item
-            h3.list-group-item-heading Piątuniunio
-            p.list-group-item-text Już w ten piątek pij za pół ceny
-            | Start: piątek 19:00
-        a.list-group-item
-            h3.list-group-item-heading Fajrant
-            p.list-group-item-text Start: kwiecień - od poniedziałku do piątku 16:00-18:00
+    p(ng-show="place.phone") telefon: {{place.phone}}
+    p(ng-show="place.email") email: {{place.email}}

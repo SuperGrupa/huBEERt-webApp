@@ -1,5 +1,4 @@
-h1
-  | huBEERt webApp 0.0.2
-
-h1
-  | {{main.val}}
+.form-group
+    select.form-control(ng-model="city" ng-options="city.name for city in cities")
+    br
+    input.form-control(type="text" ng-model="quote")
