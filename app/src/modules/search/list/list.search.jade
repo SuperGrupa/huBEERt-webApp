@@ -1,0 +1,11 @@
+table.table
+    tr
+        th Nazwa
+        th Adres
+        th
+    tbody
+        tr(ng-repeat="place in places")
+            td {{place.name}}
+            td {{place.address.city}}, ul. {{place.address.street}} {{place.address.number}}
+            td
+                a(ui-sref="place.show({ id: place.id })") Pokaż

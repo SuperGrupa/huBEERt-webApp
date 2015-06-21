@@ -1,0 +1,9 @@
+br
+form(ng-submit="search()")
+    .col-md-10.col-md-offset-7
+        .form-group
+            select.form-control(ng-options="city.name for city in cities" ng-model="city")
+        .form-group
+            input.form-control(type="text" ng-model="q")
+        .form-group
+            input.form-control.btn.btn-primary(type="submit" value="Szukaj")

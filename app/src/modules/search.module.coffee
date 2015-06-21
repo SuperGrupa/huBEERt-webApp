@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module 'huBEERt.search', ['ui.bootstrap', 'ui.router', 'huBEERt.search.input']
+angular.module 'huBEERt.search', ['ui.bootstrap', 'ui.router', 'huBEERt.search.input', 'huBEERt.search.list']
 .config ($stateProvider, $urlRouterProvider) ->
 
     $stateProvider
@@ -15,4 +15,9 @@ angular.module 'huBEERt.search', ['ui.bootstrap', 'ui.router', 'huBEERt.search.i
             url: ''
             templateUrl: 'templates/src/modules/search/input/input.search.html'
             controller: 'InputSearchCtrl'
+        )
+        .state('search.list',
+            url: 'search?q&city'
+            templateUrl: 'templates/src/modules/search/list/list.search.html'
+            controller: 'ListSearchCtrl'
         )
